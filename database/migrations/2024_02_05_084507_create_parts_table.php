@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('parts', function (Blueprint $table) {
             $table->id();
-            $table->text('code');
-            $table->text('name');
+            $table->text('nama');
+            $table->text('mobil');
+            $table->text('plat');
             $table->text('supplier');
-            $table->text('insurance');
+            $table->text('asuransi');
+            $table->date('tgl');
             $table->timestamps();
         });
     }

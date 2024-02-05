@@ -10,9 +10,11 @@ class Part extends Model
     use HasFactory;
 
     protected $fillable = [
-        'code',
-        'name',
+        'nama',
+        'mobil',
+        'plat',
         'supplier',
-        'insurance',
-    ]
+        'asuransi',
+        'tgl'
+    ];
 }

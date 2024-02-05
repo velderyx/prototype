@@ -18,4 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-route::get('/part', [PartController::class, ''])->name('part.index');
+route::get('/part', [PartController::class, 'index'])->name('part.index');
+route::get('/part/create', [PartController::class, 'create'])->name('part.create');
+route::post('/part', [PartController::class, 'store'])->name('part.store');
+
