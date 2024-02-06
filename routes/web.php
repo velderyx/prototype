@@ -21,4 +21,7 @@ Route::get('/', function () {
 route::get('/part', [PartController::class, 'index'])->name('part.index');
 route::get('/part/create', [PartController::class, 'create'])->name('part.create');
 route::post('/part', [PartController::class, 'store'])->name('part.store');
+route::get('/part/{part}/edit', [PartController::class, 'edit'])->name('part.edit');
+route::put('/part/{part}/update', [PartController::class, 'update'])->name('part.update');
+route::delete('/part/{part}/destroy', [PartController::class, 'destroy'])->name('part.destroy');
 
