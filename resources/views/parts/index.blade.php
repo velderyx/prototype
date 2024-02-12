@@ -32,8 +32,8 @@
             </tr>
             @foreach($parts as $part)
             <tr>
-                <td>{{ $part->nama }}</td>
-                <td>{{ $part->mobil }}</td>
+                <td>{{ $part->name }}</td>
+                <td>{{ $part->car_id }}</td>
                 <td>{{ $part->plat }}</td>
                 <td>{{ $part->supplier }}</td>
                 <td>{{ $part->asuransi }}</td>

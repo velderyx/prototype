@@ -18,12 +18,12 @@ class PartController extends Controller
 
     public function store(Request $request){
         $data = $request->validate([
-            'nama' => 'required',
-            'mobil' => 'required',
-            'plat' => 'required',
+            'name' => 'required',
+            'car_id' => 'required',
+            'plate' => 'required',
             'supplier' => 'required',
-            'asuransi' => 'required',
-            'tgl'=> 'required'
+            'insurance' => 'required',
+            'date'=> 'required'
         ]);
 
         $newPart = Part::create($data);
@@ -37,12 +37,12 @@ class PartController extends Controller
 
     public function update(Part $part, Request $request){
         $data = $request->validate([
-            'nama' => 'required',
-            'mobil' => 'required',
-            'plat' => 'required',
+            'name' => 'required',
+            'car_id' => 'required',
+            'plate' => 'required',
             'supplier' => 'required',
-            'asuransi' => 'required',
-            'tgl'=> 'required'
+            'insurance' => 'required',
+            'date'=> 'required'
         ]);
 
         $part->update($data);
