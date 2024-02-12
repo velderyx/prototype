@@ -33,11 +33,11 @@
             @foreach($parts as $part)
             <tr>
                 <td>{{ $part->name }}</td>
-                <td>{{ $part->car_id }}</td>
-                <td>{{ $part->plat }}</td>
+                <td>{{ $part->car->name }}</td>
+                <td>{{ $part->plate }}</td>
                 <td>{{ $part->supplier }}</td>
-                <td>{{ $part->asuransi }}</td>
-                <td>{{ $part->tgl }}</td>
+                <td>{{ $part->insurance }}</td>
+                <td>{{ $part->date }}</td>
                 <td>
                     <a href="{{ route('part.edit', ['part' => $part]) }}">Edit</a>
                 </td>

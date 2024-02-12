@@ -23,19 +23,23 @@
             @method('post')
             <div>
                 <label>tanggal</label>
-                <input type="date" name="tgl" value="{{ date('Y-m-d H:i:s') }}"/>
+                <input type="date" name="date" value="{{ date('Y-m-d H:i:s') }}"/>
             </div>
             <div>
                 <label>Nama</label>
-                <input type="text" name="nama" placeholder="nama part"/>
+                <input type="text" name="name" placeholder="nama part"/>
             </div>
             <div>
                 <label>Mobil</label>
-                <input type="text" name="mobil" placeholder="mobil"/>
+                <select name="car_id">
+                @foreach ($cars as $car)
+                <option value="{{ $car->id }}">{{ $car->name }}</option>
+                @endforeach
+                </select>
             </div>
             <div>
                 <label>plat nomor</label>
-                <input type="text" name="plat" placeholder="plat nomor"/>
+                <input type="text" name="plate" placeholder="plat nomor"/>
             </div>
             <div>
                 <label>Supplier</label>
@@ -43,7 +47,7 @@
             </div>
             <div>
                 <label>Asuransi</label>
-                <input type="text" name="asuransi" placeholder="asuransi"/>
+                <input type="text" name="insurance" placeholder="asuransi"/>
             </div>
             <div>
                 <input type="submit" value="Simpan Part baru"/>

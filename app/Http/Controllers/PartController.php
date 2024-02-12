@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Part;
+use App\Models\Car;
 
 class PartController extends Controller
 {
@@ -13,7 +14,8 @@ class PartController extends Controller
     }
 
     public function create(){
-        return view('parts.create');
+        $cars = Car::all();
+        return view('parts.create', ['cars' => $cars]);
     }
 
     public function store(Request $request){

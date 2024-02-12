@@ -6,16 +6,20 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-
-class CarSeeder extends Seeder
+class PartSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        DB::table('cars')->insert([
-            'name' => 'Toyota Avanza'
+        DB::table('parts')->insert([
+            'name' => 'bumper',
+            'car_id' => '1',
+            'plate' => 'B 2050 OJK',
+            'supplier' => 'TRIJAYA',
+            'insurance' => 'MAG',
+            'date'=> '2024-12-12'
         ]);
     }
 }
