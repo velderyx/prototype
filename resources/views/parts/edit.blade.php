@@ -23,19 +23,23 @@
             @method('put')
             <div>
                 <label>tanggal</label>
-                <input type="date" name="tgl" value="{{ $part->tgl }}"/>
+                <input type="date" name="date" value="{{ $part->date }}"/>
             </div>
             <div>
                 <label>Nama</label>
-                <input type="text" name="nama" placeholder="nama part" value="{{ $part->nama }}"/>
+                <input type="text" name="name" placeholder="nama part" value="{{ $part->name }}"/>
             </div>
             <div>
                 <label>Mobil</label>
-                <input type="text" name="mobil" placeholder="mobil" value="{{ $part->mobil }}"/>
+                <select name="car_id">
+                    @foreach ($cars as $car)
+                    <option value="{{ $car->id }}" {{ $car->id == $part->car_id ? 'selected' : '' }}>{{ $car->name }}</option>
+                    @endforeach
+                    </select>
             </div>
             <div>
                 <label>plat nomor</label>
-                <input type="text" name="plat" placeholder="plat nomor" value="{{ $part->plat }}"/>
+                <input type="text" name="plate" placeholder="plat nomor" value="{{ $part->plate }}"/>
             </div>
             <div>
                 <label>Supplier</label>
@@ -43,7 +47,7 @@
             </div>
             <div>
                 <label>Asuransi</label>
-                <input type="text" name="asuransi" placeholder="asuransi" value="{{ $part->asuransi }}"/>
+                <input type="text" name="insurance" placeholder="asuransi" value="{{ $part->insurance }}"/>
             </div>
             <div>
                 <input type="submit" value="Update"/>

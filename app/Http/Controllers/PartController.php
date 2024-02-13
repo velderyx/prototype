@@ -34,7 +34,8 @@ class PartController extends Controller
     }
 
     public function edit(Part $part){
-        return view('parts.edit', ['part' => $part]);
+        $cars = Car::all();
+        return view('parts.edit', ['part' => $part], ['cars' => $cars]);
     }
 
     public function update(Part $part, Request $request){
