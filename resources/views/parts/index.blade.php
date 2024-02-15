@@ -35,8 +35,8 @@
                 <td>{{ $part->name }}</td>
                 <td>{{ $part->car->name }}</td>
                 <td>{{ $part->plate }}</td>
-                <td>{{ $part->supplier }}</td>
-                <td>{{ $part->insurance }}</td>
+                <td>{{ $part->supplier->name }}</td>
+                <td>{{ $part->insurance->name }}</td>
                 <td>{{ $part->date }}</td>
                 <td>
                     <a href="{{ route('part.edit', ['part' => $part]) }}">Edit</a>

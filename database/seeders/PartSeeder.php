@@ -17,8 +17,8 @@ class PartSeeder extends Seeder
             'name' => 'bumper',
             'car_id' => '1',
             'plate' => 'B 2050 OJK',
-            'supplier' => 'TRIJAYA',
-            'insurance' => 'MAG',
+            'supplier_id' => '1',
+            'insurance_id' => '1',
             'date'=> '2024-12-12'
         ]);
     }

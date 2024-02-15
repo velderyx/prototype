@@ -43,11 +43,19 @@
             </div>
             <div>
                 <label>Supplier</label>
-                <input type="text" name="supplier" placeholder="supplier"/>
+                <select name="supplier_id">
+                    @foreach ($suppliers as $supplier)
+                    <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
+                    @endforeach
+                    </select>
             </div>
             <div>
                 <label>Asuransi</label>
-                <input type="text" name="insurance" placeholder="asuransi"/>
+                <select name="insurance_id">
+                    @foreach ($insurances as $insurance)
+                    <option value="{{ $insurance->id }}">{{ $insurance->name }}</option>
+                    @endforeach
+                    </select>
             </div>
             <div>
                 <input type="submit" value="Simpan Part baru"/>

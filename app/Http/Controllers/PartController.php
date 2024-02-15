@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Part;
 use App\Models\Car;
+use App\Models\Insurance;
+use App\Models\Supplier;
+use Illuminate\Database\Eloquent\Builder;
 
 class PartController extends Controller
 {
@@ -14,8 +17,10 @@ class PartController extends Controller
     }
 
     public function create(){
-        $cars = Car::all();
-        return view('parts.create', ['cars' => $cars]);
+        $cars = Car::orderBy('name')->get();
+        $suppliers = Supplier::orderBy('name')->get();
+        $insurances = Insurance::orderBy('name')->get();
+        return view('parts.create', ['cars' => $cars, 'suppliers' => $suppliers, 'insurances' => $insurances]);
     }
 
     public function store(Request $request){
@@ -23,8 +28,8 @@ class PartController extends Controller
             'name' => 'required',
             'car_id' => 'required',
             'plate' => 'required',
-            'supplier' => 'required',
-            'insurance' => 'required',
+            'supplier_id' => 'required',
+            'insurance_id' => 'required',
             'date'=> 'required'
         ]);
 
@@ -34,8 +39,10 @@ class PartController extends Controller
     }
 
     public function edit(Part $part){
-        $cars = Car::all();
-        return view('parts.edit', ['part' => $part], ['cars' => $cars]);
+        $cars = Car::orderBy('name')->get();
+        $suppliers = Supplier::orderBy('name')->get();
+        $insurances = Insurance::orderBy('name')->get(); 
+        return view('parts.edit', ['part' => $part, 'cars' => $cars, 'suppliers' => $suppliers, 'insurances' => $insurances]);
     }
 
     public function update(Part $part, Request $request){
@@ -43,8 +50,8 @@ class PartController extends Controller
             'name' => 'required',
             'car_id' => 'required',
             'plate' => 'required',
-            'supplier' => 'required',
-            'insurance' => 'required',
+            'supplier_id' => 'required',
+            'insurance_id' => 'required',
             'date'=> 'required'
         ]);
 

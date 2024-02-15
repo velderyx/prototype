@@ -14,14 +14,16 @@ class InsuranceSeeder extends Seeder
      */
     public function run(): void
     {
-        $insurance_names = [
-            // List of car insurance companies here...
+        $insuranceNames = [
+            "Etiqa/Asoka",
+            "Harta Aman Pratama",
+            "Multi Artha Guna"
         ];
         
         // Remove duplicates
-        $uniqueCarInsuranceCompanies = array_unique($carInsuranceCompanies);
+        $uniqueInsuranceNames = array_unique($insuranceNames);
 
-        foreach ($insurance_names as $name) {
+        foreach ($uniqueInsuranceNames as $name) {
             DB::table('insurances')->insert([
                 'name' => $name,
             ]);

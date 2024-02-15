@@ -35,7 +35,7 @@
                     @foreach ($cars as $car)
                     <option value="{{ $car->id }}" {{ $car->id == $part->car_id ? 'selected' : '' }}>{{ $car->name }}</option>
                     @endforeach
-                    </select>
+                </select>
             </div>
             <div>
                 <label>plat nomor</label>
@@ -43,11 +43,19 @@
             </div>
             <div>
                 <label>Supplier</label>
-                <input type="text" name="supplier" placeholder="supplier" value="{{ $part->supplier }}"/>
+                <select name="supplier_id">
+                    @foreach ($suppliers as $supplier)
+                    <option value="{{ $supplier->id }}" {{ $supplier->id == $supplier->supplier ? 'selected' : '' }}>{{ $supplier->name }}</option>
+                    @endforeach
+                </select>    
             </div>
             <div>
                 <label>Asuransi</label>
-                <input type="text" name="insurance" placeholder="asuransi" value="{{ $part->insurance }}"/>
+                <select name="insurance_id">
+                    @foreach ($insurances as $insurance)
+                    <option value="{{ $insurance->id }}" {{ $insurance->id == $insurance->insurance_id ? 'selected' : '' }}>{{ $insurance->name }}</option>
+                    @endforeach
+                </select>
             </div>
             <div>
                 <input type="submit" value="Update"/>

@@ -14,13 +14,23 @@ class Part extends Model
         'name',
         'car_id',
         'plate',
-        'supplier',
-        'insurance',
+        'supplier_id',
+        'insurance_id',
         'date'
     ];
 
     public function car(): BelongsTo
     {
         return $this->belongsTo(Car::class);
+    }
+
+    public function supplier(): BelongsTo
+    {
+        return $this->belongsTo(Supplier::class);
+    }
+
+    public function insurance(): BelongsTo
+    {
+        return $this->belongsTo(Insurance::class);
     }
 }
