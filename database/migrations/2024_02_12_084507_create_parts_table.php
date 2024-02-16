@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('supplier_id')->constrained();
             $table->foreignId('insurance_id')->constrained();
             $table->date('date');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

@@ -16,7 +16,8 @@ class Part extends Model
         'plate',
         'supplier_id',
         'insurance_id',
-        'date'
+        'date',
+        'description'
     ];
 
     public function car(): BelongsTo

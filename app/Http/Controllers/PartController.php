@@ -30,7 +30,8 @@ class PartController extends Controller
             'plate' => 'required',
             'supplier_id' => 'required',
             'insurance_id' => 'required',
-            'date'=> 'required'
+            'date'=> 'required',
+            'description' => 'nullable'
         ]);
 
         $newPart = Part::create($data);
@@ -41,7 +42,7 @@ class PartController extends Controller
     public function edit(Part $part){
         $cars = Car::orderBy('name')->get();
         $suppliers = Supplier::orderBy('name')->get();
-        $insurances = Insurance::orderBy('name')->get(); 
+        $insurances = Insurance::orderBy('name')->get();
         return view('parts.edit', ['part' => $part, 'cars' => $cars, 'suppliers' => $suppliers, 'insurances' => $insurances]);
     }
 
@@ -52,7 +53,8 @@ class PartController extends Controller
             'plate' => 'required',
             'supplier_id' => 'required',
             'insurance_id' => 'required',
-            'date'=> 'required'
+            'date'=> 'required',
+            'description' => 'nullable'
         ]);
 
         $part->update($data);
