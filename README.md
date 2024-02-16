@@ -10,6 +10,9 @@
 ## About Laravel
 
 dependencies:   -adminLte, put it in public
+replace code if error undefined array key 
+
+return isset($matches[1]) ? Carbon::createFromFormat('D M d H:i:s Y', $matches[1]) : Carbon::now();
 
 ## About Laravel
 
