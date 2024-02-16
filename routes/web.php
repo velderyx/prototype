@@ -1,9 +1,10 @@
 <?php
 
 use App\Http\Controllers\PartController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Counter;
- 
+
 Route::get('/counter', Counter::class);
 
 /*
@@ -20,6 +21,8 @@ Route::get('/counter', Counter::class);
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('layout.main');
 
 route::get('/part', [PartController::class, 'index'])->name('part.index');
 route::get('/part/create', [PartController::class, 'create'])->name('part.create');
