@@ -107,12 +107,14 @@
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
-          <div class="col-sm-2">
-            <h1>Data Part</h1>
-            <a href="your_link_here" class="btn btn-success">
-                <i class="fas fa-plus"></i>
-                <span>Tambah Part baru</span>
-            </a>
+          <div class="col-sm-6">
+            <h1>Data Part
+                <a href="your_link_here" class="btn btn-success">
+                    <i class="fas fa-plus"></i>
+                    <span>Tambah Part baru</span>
+                </a>
+            </h1>
+
           </div>
         </div>
       </div><!-- /.container-fluid -->
