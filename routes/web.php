@@ -3,9 +3,6 @@
 use App\Http\Controllers\PartController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
-use App\Livewire\Counter;
-
-Route::get('/counter', Counter::class);
 
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +27,3 @@ route::post('/part', [PartController::class, 'store'])->name('part.store');
 route::get('/part/{part}/edit', [PartController::class, 'edit'])->name('part.edit');
 route::put('/part/{part}/update', [PartController::class, 'update'])->name('part.update');
 route::delete('/part/{part}/destroy', [PartController::class, 'destroy'])->name('part.destroy');
-

@@ -28,9 +28,7 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="{{ url('dashboard') }}" class="nav-link">Home</a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li>
+
     </ul>
 
 
@@ -38,7 +36,7 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-blue-primary elevation-4">
+  <aside class="main-sidebar sidebar-light-primary elevation-4">
 
 
     <!-- Sidebar -->
@@ -109,14 +107,12 @@
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Part Data</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">DataTables</li>
-            </ol>
+          <div class="col-sm-2">
+            <h1>Data Part</h1>
+            <a href="your_link_here" class="btn btn-success">
+                <i class="fas fa-plus"></i>
+                <span>Tambah Part baru</span>
+            </a>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -132,7 +128,7 @@
             <div class="card">
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="example1" class="table table-bordered table-striped" >
                   <thead>
                   <tr>
                     <th>nama</th>
@@ -201,7 +197,7 @@
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 0.5
     </div>
-    <strong>Liefs 2024 </strong> All rights reserved.
+    <strong>Liefs 2024</strong>
   </footer>
 
   <!-- Control Sidebar -->
