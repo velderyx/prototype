@@ -26,7 +26,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="../../index3.html" class="nav-link">Home</a>
+        <a href="{{ url('dashboard') }}" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
@@ -110,7 +110,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>DataTables</h1>
+            <h1>Part Data</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -130,9 +130,6 @@
             <!-- /.card -->
 
             <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">DataTable with default features</h3>
-              </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
@@ -144,7 +141,7 @@
                     <th>supplier</th>
                     <th>asuransi</th>
                     <th>tgl</th>
-                    <th>deskripsi</th>
+                    <th>keterangan</th>
                     <th>edit</th>
                     <th>hapus</th>
                   </tr>
@@ -180,7 +177,7 @@
                     <th>supplier</th>
                     <th>asuransi</th>
                     <th>tgl</th>
-                    <th>deskripsi</th>
+                    <th>keterangan</th>
                     <th>edit</th>
                     <th>hapus</th>
                   </tr>
