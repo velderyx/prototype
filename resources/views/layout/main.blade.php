@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | DataTables</title>
+  <title>@yield('title')</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -75,21 +75,21 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../../index.html" class="nav-link">
+                <a href="{{ url('part') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
+                  <p>Part</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="../../index2.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
+                  <p>supplier</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="../../index3.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
+                  <p>Asuransi</p>
                 </a>
               </li>
             </ul>
@@ -102,98 +102,10 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Data Part
-                <a href="your_link_here" class="btn btn-success">
-                    <i class="fas fa-plus"></i>
-                    <span>Tambah Part baru</span>
-                </a>
-            </h1>
-
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-12">
-            <!-- /.card -->
-
-            <div class="card">
-              <!-- /.card-header -->
-              <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped" >
-                  <thead>
-                  <tr>
-                    <th>nama</th>
-                    <th>mobil</th>
-                    <th>plat</th>
-                    <th>supplier</th>
-                    <th>asuransi</th>
-                    <th>tgl</th>
-                    <th>keterangan</th>
-                    <th>edit</th>
-                    <th>hapus</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                    @foreach($parts as $part)
-                    <tr>
-                        <td>{{ $part->name }}</td>
-                        <td>{{ $part->car->name }}</td>
-                        <td>{{ $part->plate }}</td>
-                        <td>{{ $part->supplier->name }}</td>
-                        <td>{{ $part->insurance->name }}</td>
-                        <td>{{ $part->date }}</td>
-                        <td>{{ $part->description }}</td>
-                        <td>
-                            <a href="{{ route('part.edit', ['part' => $part]) }}">Edit</a>
-                        </td>
-                        <td>
-                            <form method="post" action="{{ route('part.destroy', ['part'=>$part]) }}">
-                                @csrf
-                                @method('delete')
-                                <input type="submit" value="delete"/>
-                            </form>
-                        </td>
-                    </tr>
-                    @endforeach
-                  </tbody>
-                  <tfoot>
-                  <tr>
-                    <th>nama</th>
-                    <th>mobil</th>
-                    <th>plat</th>
-                    <th>supplier</th>
-                    <th>asuransi</th>
-                    <th>tgl</th>
-                    <th>keterangan</th>
-                    <th>edit</th>
-                    <th>hapus</th>
-                  </tr>
-                  </tfoot>
-                </table>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col -->
-        </div>
-        <!-- /.row -->
-      </div>
-      <!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-  </div>
+        <!-- Content section -->
+    <main>
+        @yield('content')
+    </main>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">

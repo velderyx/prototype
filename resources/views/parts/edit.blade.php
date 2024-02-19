@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+@extends('layout.main')
+@section('title', 'Data Part')
+@section('content')
 <body>
     <h1>Create A Part</h1>
     <div>
@@ -47,7 +42,7 @@
                     @foreach ($suppliers as $supplier)
                     <option value="{{ $supplier->id }}" {{ $supplier->id == $supplier->supplier ? 'selected' : '' }}>{{ $supplier->name }}</option>
                     @endforeach
-                </select>    
+                </select>
             </div>
             <div>
                 <label>Asuransi</label>
@@ -63,4 +58,4 @@
         </form>
     </div>
 </body>
-</html>
+@endsection
