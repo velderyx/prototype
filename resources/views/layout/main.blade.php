@@ -104,7 +104,10 @@
   <!-- Content Wrapper. Contains page content -->
         <!-- Content section -->
     <main>
+        <div class="content-wrapper">
+
         @yield('content')
+        </div>
     </main>
   <!-- /.content-wrapper -->
   <footer class="main-footer">

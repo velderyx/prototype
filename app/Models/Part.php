@@ -16,6 +16,7 @@ class Part extends Model
         'plate',
         'supplier_id',
         'insurance_id',
+        'status_id',
         'date',
         'description'
     ];
@@ -33,5 +34,10 @@ class Part extends Model
     public function insurance(): BelongsTo
     {
         return $this->belongsTo(Insurance::class);
+    }
+
+    public function status(): BelongsTo
+    {
+        return $this->belongsTo(Status::class);
     }
 }

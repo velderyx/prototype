@@ -19,6 +19,7 @@ class PartSeeder extends Seeder
             'plate' => 'B 2050 OJK',
             'supplier_id' => '1',
             'insurance_id' => '1',
+            'status_id' => '1',
             'date'=> '2024-12-12',
             'description'=> ''
         ]);

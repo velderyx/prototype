@@ -1,14 +1,12 @@
 @extends('layout.main')
 @section('title', 'Data Part')
 @section('content')
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1>Data Part
-                <a href="{{ route('part.index') }}" class="btn btn-success">
+                <a href="{{ route('part.create') }}" class="btn btn-success">
                     <i class="fas fa-plus"></i>
                     <span>Tambah Part baru</span>
                 </a>
@@ -39,36 +37,39 @@
                 <table id="example1" class="table table-bordered table-striped" >
                   <thead>
                   <tr>
+                    <th>tgl</th>
                     <th>nama</th>
                     <th>mobil</th>
                     <th>plat</th>
                     <th>supplier</th>
                     <th>asuransi</th>
-                    <th>tgl</th>
+                    <th>status</th>
                     <th>keterangan</th>
-                    <th>opsi</th>
+                    <th>--</th>
                   </tr>
                   </thead>
                   <tbody>
                     @foreach($parts as $part)
                     <tr>
+                        <td>{{ date('d/m/Y', strtotime($part->date)) }}</td>
                         <td>{{ $part->name }}</td>
                         <td>{{ $part->car->name }}</td>
                         <td>{{ $part->plate }}</td>
                         <td>{{ $part->supplier->name }}</td>
                         <td>{{ $part->insurance->name }}</td>
-                        <td>{{ date('d/m/Y', strtotime($part->date)) }}</td>
+                        <td>{{ $part->status->name }}</td>
                         <td>{{ $part->description }}</td>
                         <td>
                             <div class="btn-group">
-                                <button type="button" class="btn btn-success">Action</button>
-                                <button type="button" class="btn btn-success dropdown-toggle dropdown-hover dropdown-icon" data-toggle="dropdown">
-                                <span class="sr-only">Toggle Dropdown</span>
+                              <button type="button" class="btn btn-success">Opsi</button>
+                              <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                                  <span class="sr-only">Toggle Dropdown</span>
                               </button>
                               <div class="dropdown-menu" role="menu">
-                                <a class="dropdown-item" href="{{ route('part.edit', ['part' => $part]) }}">Edit</a>
-                                <a class="dropdown-item" href="{{ route('part.destroy', ['part'=>$part]) }}">Delete</a>
+                                 <a class="dropdown-item" href="{{ route('part.edit', ['part' => $part]) }}">Edit</a></li>
+                                 <a class="dropdown-item" href="{{ route('part.destroy', ['part'=>$part]) }}">Delete</a></li>
                               </div>
+                             </div>
                             </div>
                         </td>
                     </tr>
@@ -76,14 +77,15 @@
                   </tbody>
                   <tfoot>
                   <tr>
+                    <th>tgl</th>
                     <th>nama</th>
                     <th>mobil</th>
                     <th>plat</th>
                     <th>supplier</th>
                     <th>asuransi</th>
-                    <th>tgl</th>
+                    <th>status</th>
                     <th>keterangan</th>
-                    <th>opsi</th>
+                    <th>--</th>
                   </tr>
                   </tfoot>
                 </table>
@@ -98,6 +100,4 @@
       </div>
       <!-- /.container-fluid -->
     </section>
-    <!-- /.content -->
-  </div>
   @endsection

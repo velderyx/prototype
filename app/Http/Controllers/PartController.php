@@ -7,6 +7,7 @@ use App\Models\Part;
 use App\Models\Car;
 use App\Models\Insurance;
 use App\Models\Supplier;
+use App\Models\Status;
 use Illuminate\Database\Eloquent\Builder;
 
 class PartController extends Controller
@@ -20,7 +21,8 @@ class PartController extends Controller
         $cars = Car::orderBy('name')->get();
         $suppliers = Supplier::orderBy('name')->get();
         $insurances = Insurance::orderBy('name')->get();
-        return view('parts.create', ['cars' => $cars, 'suppliers' => $suppliers, 'insurances' => $insurances]);
+        $statuses = Status::orderBy('name')->get();
+        return view('parts.create', ['cars' => $cars, 'suppliers' => $suppliers, 'insurances' => $insurances, 'statuses' => $statuses]);
     }
 
     public function store(Request $request){
@@ -30,6 +32,7 @@ class PartController extends Controller
             'plate' => 'required',
             'supplier_id' => 'required',
             'insurance_id' => 'required',
+            'status_id' => 'required',
             'date'=> 'required',
             'description' => 'nullable'
         ]);
@@ -37,13 +40,15 @@ class PartController extends Controller
         $newPart = Part::create($data);
 
         return redirect(route('part.index'));
+
     }
 
     public function edit(Part $part){
         $cars = Car::orderBy('name')->get();
         $suppliers = Supplier::orderBy('name')->get();
         $insurances = Insurance::orderBy('name')->get();
-        return view('parts.edit', ['part' => $part, 'cars' => $cars, 'suppliers' => $suppliers, 'insurances' => $insurances]);
+        $statuses = Status::orderBy('name')->get();
+        return view('parts.edit', ['part' => $part, 'cars' => $cars, 'suppliers' => $suppliers, 'insurances' => $insurances, 'statuses' => $statuses]);
     }
 
     public function update(Part $part, Request $request){
@@ -53,6 +58,7 @@ class PartController extends Controller
             'plate' => 'required',
             'supplier_id' => 'required',
             'insurance_id' => 'required',
+            'status_id' => 'required',
             'date'=> 'required',
             'description' => 'nullable'
         ]);
