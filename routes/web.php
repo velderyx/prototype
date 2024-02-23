@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/part');
 });
 
 Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('layout.main');
