@@ -16,10 +16,17 @@
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
+    @if (session()->has('loginError'))
+
+    <div class="alert alert-danger alert-dismissible">
+        {{ session('loginError') }}
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    </div>
+    @endif
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="{{ route('login') }}" class="h1"><b>Login</b></a>
+      <a href="#" class="h1"><b>Login</b></a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Sign in to start your session</p>
@@ -27,15 +34,20 @@
       <form action="/login" method="post">
         @csrf
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email@email.com">
+          <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email@email.com" autofocus required value="{{ old('email') }}"/>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
             </div>
           </div>
+          @error('email')
+              <div class="invalid-feedback">
+              {{ $message }}
+              </div>
+          @enderror
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" name="password" placeholder="Password"/>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>

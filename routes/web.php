@@ -20,8 +20,8 @@ Route::get('/', function () {
     return redirect('/part');
 });
 
-Route::get('/login',[LoginController::class, 'index'])->name('login');
-Route::post('/login',[LoginController::class, 'authenticate'])->name('login');
+Route::get('/login',[LoginController::class, 'index']);
+Route::post('/login',[LoginController::class, 'authenticate']);
 
 
 Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('layout.main');
