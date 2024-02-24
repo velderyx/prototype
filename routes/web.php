@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PartController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect('/part');
 });
+
+Route::get('/login',[LoginController::class, 'index'])->name('login');
+Route::post('/login',[LoginController::class, 'authenticate'])->name('login');
+
 
 Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('layout.main');
 
