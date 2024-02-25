@@ -28,7 +28,27 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="{{ url('part') }}" class="nav-link">Home</a>
       </li>
+    </ul>
 
+    <!-- right navbar -->
+    <ul class="navbar-nav ml-auto">
+      @auth
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Welcome
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <div class="dropdown-divider"></div>
+          <form action="/logout" method="post">
+            @csrf 
+            <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i>Logout</button>
+          </form>
+        </div>
+      </li>
+
+      @else
+      @endauth
     </ul>
 
 
@@ -45,6 +65,9 @@
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
           <img src="{{ asset('liefs-logo.png') }}" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">{{ auth()->user()->name}}</a>
         </div>
       </div>
 
