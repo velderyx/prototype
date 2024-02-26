@@ -33,19 +33,10 @@
     <!-- right navbar -->
     <ul class="navbar-nav ml-auto">
       @auth
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Welcome
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <div class="dropdown-divider"></div>
           <form action="/logout" method="post">
-            @csrf 
+            @csrf
             <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i>Logout</button>
           </form>
-        </div>
-      </li>
 
       @else
       @endauth
