@@ -54,6 +54,10 @@
                     </select>
                  </div>
                  <div class="form-group">
+                    <label>keterangan</label>
+                    <input type="text" class="form-control" name="description" placeholder="Keterangan" value="{{ $part->description }}"/>
+                 </div>
+                 <div class="form-group">
                     <label>Status</label>
                     @foreach ($statuses as $status)
                     <div class="custom-control custom-radio">

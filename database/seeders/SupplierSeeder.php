@@ -42,9 +42,15 @@ class SupplierSeeder extends Seeder
         ];
 
         foreach ($suppliersNames as $name) {
-            DB::table('suppliers')->insert([
-                'name' => $name,
-            ]);
-         }
+            // Check if the supplier already exists
+            $existingSupplier = DB::table('suppliers')->where('name', $name)->first();
+
+            // If the supplier doesn't exist, insert it
+            if (!$existingSupplier) {
+                DB::table('suppliers')->insert([
+                    'name' => $name,
+                ]);
+            }
+        }
     }
 }

@@ -54,6 +54,10 @@
                     </select>
                  </div>
                  <div class="form-group">
+                    <label>Keterangan</label>
+                    <input type="text" class="form-control" name="description" placeholder="Keterangan"/>
+                 </div>
+                 <div class="form-group">
                     <label>Status</label>
                     <div class="custom-control custom-radio">
                         <input class="custom-control-input" type="radio" id="customRadio1" name="status_id" value="1" checked>
