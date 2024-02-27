@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PartController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,3 +34,5 @@ route::post('/part', [PartController::class, 'store'])->name('part.store');
 route::get('/part/{part}/edit', [PartController::class, 'edit'])->name('part.edit')->middleware('auth');
 route::put('/part/{part}/update', [PartController::class, 'update'])->name('part.update');
 route::get('/part/{part}/destroy', [PartController::class, 'destroy'])->name('part.destroy');
+
+route::get('/test', [Controller::class, 'test'])->name('test.index')->middleware('auth');
