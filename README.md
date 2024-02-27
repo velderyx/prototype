@@ -12,6 +12,12 @@
 dependencies:   -adminLte, put it in public
 if error autoload not found: composer install
 run on localhost: https://www.youtube.com/watch?v=ABxWF4WjLLE
+make .htaccess file:
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(.*)$ /public/$1 [L,QSA]
+
+
 edit httpd-vhosts on C:\xampp\apache\conf\extra
 <VirtualHost *:80>
     ServerAdmin webmaster@liefs.test
