@@ -10,13 +10,13 @@
                     <i class="fas fa-plus"></i>
                     <span>Tambah Part baru</span>
                 </a>
-                <div>
+                {{-- <div>
                     @if(session()->has('success'))
                         <div>
                             {{ session('success') }}
                         </div>
                     @endif
-                </div>
+                </div> --}}
             </h1>
 
           </div>

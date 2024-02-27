@@ -15,11 +15,36 @@ class InsuranceSeeder extends Seeder
     public function run(): void
     {
         $insuranceNames = [
-            "Etiqa/Asoka",
+            "Etiqa / Asoka",
             "Harta Aman Pratama",
-            "Multi Artha Guna"
+            "Multi Artha Guna",
+            "Great Eastern General Insurance",
+            "Asuransi Wahana Tata",
+            "Rama Satria Wibawa",
+            "Sonwelis Takaful",
+            "Sunday Insurance Indonesia",
+            "Untuk Semua",
+            "Avrist General Insurance",
+            "Bintang",
+            "Chubb General Insurance Indonesia",
+            "FPG",
+            "Intra Asia",
+            "LIPPO",
+            "Malacca",
+            "MPM / Mitra Pelindung Mustika",
+            "MNC Insurance",
+            "China Taiping Insurance Indonesia",
+            "Purna Artanugraha (ASPANI)",
+            "Sinar Mas",
+            "Sompo Japan Nipponika",
+            "Takaful Umum",
+            "Tripakarta",
+            "Tugu Pratama",
+            "Victoria",
+            "Zurich"
+
         ];
-        
+
         // Remove duplicates
         $uniqueInsuranceNames = array_unique($insuranceNames);
 
