@@ -10,22 +10,27 @@
 ## About Laravel
 
 dependencies:   -adminLte, put it in public
-replace code if error undefined array key 
+if error autoload not found: composer install
+run on localhost: https://www.youtube.com/watch?v=ABxWF4WjLLE
+make .htaccess file:
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(.*)$ /public/$1 [L,QSA]
 
-protected function getDateFromLine($line)
-{
-    $regex = env('PHP_CLI_SERVER_WORKERS', 1) > 1
-        ? '/^\[\d+]\s\[([a-zA-Z0-9: ]+)\]/'
-        : '/^\[([^\]]+)\]/';
 
-    preg_match($regex, $line, $matches);
+edit httpd-vhosts on C:\xampp\apache\conf\extra
+<VirtualHost *:80>
+    ServerAdmin webmaster@liefs.test
+    DocumentRoot "C:/xampp/htdocs/liefs/public/"
+    ServerName liefs.test
+    ErrorLog "logs/dummy-host2.example.com-error.log"
+    CustomLog "logs/dummy-host2.example.com-access.log" common
+</VirtualHost>
 
-    if (isset($matches[1])) {
-        return Carbon::createFromFormat('D M d H:i:s Y', $matches[1]);
-    }
-    return Carbon::now();
 
-}
+edit host on C:\Windows\System32\drivers\etc 
+127.0.0.1	localhost
+127.0.0.1	liefs.test
 
 ## About Laravel
 
