@@ -35,7 +35,7 @@
                  </div>
                  <div class="form-group">
                     <label>plat nomor</label>
-                    <input type="text" class="form-control" name="plate" placeholder="plat nomor" value="{{ $part->plate }}"/>
+                    <input type="text" class="form-control uppercase" name="plate" placeholder="plat nomor" value="{{ $part->plate }}"/>
                  </div>
                  <div class="form-group">
                   <label>Supplier</label>
