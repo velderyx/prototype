@@ -66,7 +66,7 @@
                             </button>
                             <div class="dropdown-menu" role="menu">
                               <a class="dropdown-item" href="{{ route('part.edit', ['part' => $part]) }}">Edit</a></li>
-                              <a class="dropdown-item" href="{{ route('part.destroy', ['part'=>$part]) }}">Delete</a></li>
+                              <a class="dropdown-item" href="{{ route('part.destroy', ['part'=>$part]) }}" onclick="return confirm('Yakin hapus part ini?')">Delete</a></li>
                             </div>
                           </div>
                         </td>
