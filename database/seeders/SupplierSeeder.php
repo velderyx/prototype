@@ -17,7 +17,7 @@ class SupplierSeeder extends Seeder
 
 
         $suppliersNames = [
-            "lainnya",
+            "Lainnya",
             "Sarinah Jaya",
             "Nusantara / Oto sentosa",
             "Wira Utama",

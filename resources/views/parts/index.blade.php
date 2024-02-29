@@ -36,14 +36,14 @@
                 <table id="example1" class="table table-bordered table-striped" >
                   <thead>
                   <tr>
-                    <th>tgl</th>
-                    <th>nama</th>
-                    <th>mobil</th>
-                    <th>plat</th>
-                    <th>supplier</th>
-                    <th>asuransi</th>
-                    <th>status</th>
-                    <th>keterangan</th>
+                    <th>Tgl</th>
+                    <th>Plat Nomor</th>
+                    <th>Nama</th>
+                    <th>Mobil</th>
+                    <th>Supplier</th>
+                    <th>Asuransi</th>
+                    <th>Atatus</th>
+                    <th>Keterangan</th>
                     <th>--</th>
                   </tr>
                   </thead>
@@ -51,9 +51,9 @@
                     @foreach($parts as $part)
                     <tr>
                         <td>{{ date('d/m/Y', strtotime($part->date)) }}</td>
+                        <td>{{ $part->plate }}</td>
                         <td>{{ $part->name }}</td>
                         <td>{{ $part->car->name }}</td>
-                        <td>{{ $part->plate }}</td>
                         <td>{{ $part->supplier->name }}</td>
                         <td>{{ $part->insurance->name }}</td>
                         <td>{{ $part->status->name }}</td>
@@ -75,15 +75,15 @@
                   </tbody>
                   <tfoot>
                     <tr>
-                      <th>tgl</th>
-                      <th>nama</th>
-                      <th>mobil</th>
-                      <th>plat</th>
-                      <th>supplier</th>
-                      <th>asuransi</th>
-                      <th>status</th>
-                      <th>keterangan</th>
-                      <th>--</th>
+                        <th>Tgl</th>
+                        <th>Plat Nomor</th>
+                        <th>Nama</th>
+                        <th>Mobil</th>
+                        <th>Supplier</th>
+                        <th>Asuransi</th>
+                        <th>Atatus</th>
+                        <th>Keterangan</th>
+                        <th>--</th>
                     </tr>
                   </tfoot>
                 </table>

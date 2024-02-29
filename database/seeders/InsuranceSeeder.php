@@ -15,6 +15,7 @@ class InsuranceSeeder extends Seeder
     public function run(): void
     {
         $insuranceNames = [
+            "Lainnya",
             "Etiqa / Asoka",
             "Harta Aman Pratama",
             "Multi Artha Guna",

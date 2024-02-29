@@ -13,13 +13,15 @@ class CarSeeder extends Seeder
      * Run the database seeds.
      */
 
-    
+
 
 
     public function run(): void
     {
         $carModels = array(
+            "Lainnya",
             // Toyota
+            "Toyota Agya",
             "Toyota Avanza",
             "Toyota Kijang Innova",
             "Toyota Rush",
