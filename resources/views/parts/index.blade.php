@@ -50,7 +50,7 @@
                   <tbody>
                     @foreach($parts as $part)
                     <tr>
-                        <td>{{ date('d/m/Y', strtotime($part->date)) }}</td>
+                        <td>{{ date('Y/m/d', strtotime($part->date)) }}</td>
                         <td>{{ $part->plate }}</td>
                         <td>{{ $part->name }}</td>
                         <td>{{ $part->car->name }}</td>

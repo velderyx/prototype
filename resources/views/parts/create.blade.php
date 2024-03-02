@@ -23,7 +23,7 @@
                  </div>
                  <div class="form-group">
                     <label>Nama</label>
-                    <input type="text" class="form-control" name="name" placeholder="nama part"/>
+                    <input type="text" class="form-control" name="name" placeholder="nama part" oninput="this.value = this.value.toUpperCase()"/>
                  </div>
                  <div class="form-group">
                     <label>Mobil</label>
@@ -35,7 +35,7 @@
                  </div>
                  <div class="form-group">
                     <label>plat nomor</label>
-                    <input type="text" class="form-control" name="plate" placeholder="plat nomor"/>
+                    <input type="text" class="form-control" name="plate" placeholder="plat nomor" oninput="this.value = this.value.toUpperCase()"/>
                  </div>
                  <div class="form-group">
                   <label>Supplier</label>

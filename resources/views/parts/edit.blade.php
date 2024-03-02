@@ -23,7 +23,7 @@
                  </div>
                  <div class="form-group">
                     <label>Nama</label>
-                    <input type="text" class="form-control" name="name" placeholder="nama part" value="{{ $part->name }}"/>
+                    <input type="text" class="form-control" name="name" placeholder="nama part" value="{{ $part->name }}" oninput="this.value = this.value.toUpperCase()"/>
                  </div>
                  <div class="form-group">
                     <label>Mobil</label>
@@ -35,7 +35,7 @@
                  </div>
                  <div class="form-group">
                     <label>plat nomor</label>
-                    <input type="text" class="form-control uppercase" name="plate" placeholder="plat nomor" value="{{ $part->plate }}"/>
+                    <input type="text" class="form-control uppercase" name="plate" placeholder="plat nomor" value="{{ $part->plate }}" oninput="this.value = this.value.toUpperCase()"/>
                  </div>
                  <div class="form-group">
                   <label>Supplier</label>
