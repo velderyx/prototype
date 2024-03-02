@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use App\Models\Car;
 
 class CarSeeder extends Seeder
 {
@@ -98,12 +99,31 @@ class CarSeeder extends Seeder
             "Audi A4",
             "Audi A6",
             "Audi",
+            // VW
+            "Volkswagen Golf",
+            "Volkswagen Tiguan",
+            "Volkswagen Touran",
+            "Volkswagen Passat",
+            "Volkswagen Tiguan Allspace",
+            "Volkswagen Teramont",
+            "Volkswagen Polo",
+            "Volkswagen Jetta",
+            "Volkswagen Arteon",
+            "Volkswagen Sharan",
+            "Volkswagen Touareg",
+            "Volkswagen Beetle"
         );
 
         foreach ($carModels as $model) {
-            DB::table('cars')->insert([
-                'name' => $model,
-            ]);
-         }
+            // Check if the model already exists in the database
+            $existingCar = Car::where('name', $model)->first();
+
+            // If the model doesn't exist, insert it
+            if (!$existingCar) {
+                Car::create([
+                    'name' => $model,
+                ]);
+            }
+        }
     }
 }
