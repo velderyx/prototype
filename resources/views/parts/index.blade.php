@@ -42,7 +42,8 @@
                     <th>Mobil</th>
                     <th>Supplier</th>
                     <th>Asuransi</th>
-                    <th>Atatus</th>
+                    <th>Status</th>
+                    <th>Lokasi</th>
                     <th>Keterangan</th>
                     <th>--</th>
                   </tr>
@@ -57,6 +58,7 @@
                         <td>{{ $part->supplier->name }}</td>
                         <td>{{ $part->insurance->name }}</td>
                         <td>{{ $part->status->name }}</td>
+                        <td>{{ $part->location->name }}</td>
                         <td>{{ $part->description }}</td>
                         <td>
                           <div class="btn-group">
@@ -81,7 +83,8 @@
                         <th>Mobil</th>
                         <th>Supplier</th>
                         <th>Asuransi</th>
-                        <th>Atatus</th>
+                        <th>Status</th>
+                        <th>Lokasi</th>
                         <th>Keterangan</th>
                         <th>--</th>
                     </tr>

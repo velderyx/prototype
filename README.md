@@ -9,6 +9,7 @@
 
 ## About Laravel
 
+notes:
 dependencies:   -adminLte, put it in public
 if error autoload not found: composer install
 run on localhost: https://www.youtube.com/watch?v=ABxWF4WjLLE
@@ -16,7 +17,6 @@ make .htaccess file:
 RewriteEngine On
 RewriteCond %{REQUEST_URI} !^/public/
 RewriteRule ^(.*)$ /public/$1 [L,QSA]
-
 
 edit httpd-vhosts on C:\xampp\apache\conf\extra
 <VirtualHost *:80>
@@ -27,10 +27,13 @@ edit httpd-vhosts on C:\xampp\apache\conf\extra
     CustomLog "logs/dummy-host2.example.com-access.log" common
 </VirtualHost>
 
-
 edit host on C:\Windows\System32\drivers\etc 
 127.0.0.1	localhost
 127.0.0.1	liefs.test
+
+if location table created after production:
+make location table first => insert one data => change the id of inserted data to 0 then migrate should be no error after that.
+https://stackoverflow.com/questions/21659691/error-1452-cannot-add-or-update-a-child-row-a-foreign-key-constraint-fails madhur baiya's answer
 
 ## About Laravel
 

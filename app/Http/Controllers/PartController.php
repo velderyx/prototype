@@ -8,6 +8,7 @@ use App\Models\Car;
 use App\Models\Insurance;
 use App\Models\Supplier;
 use App\Models\Status;
+use App\Models\Location;
 use Illuminate\Database\Eloquent\Builder;
 
 class PartController extends Controller
@@ -22,7 +23,8 @@ class PartController extends Controller
         $suppliers = Supplier::orderBy('name')->get();
         $insurances = Insurance::orderBy('name')->get();
         $statuses = Status::orderBy('name')->get();
-        return view('parts.create', ['cars' => $cars, 'suppliers' => $suppliers, 'insurances' => $insurances, 'statuses' => $statuses]);
+        $locations = Location::orderBy('name')->get();
+        return view('parts.create', ['cars' => $cars, 'suppliers' => $suppliers, 'insurances' => $insurances, 'statuses' => $statuses, 'locations' => $locations]);
     }
 
     public function store(Request $request){
@@ -33,6 +35,7 @@ class PartController extends Controller
             'supplier_id' => 'required',
             'insurance_id' => 'required',
             'status_id' => 'required',
+            'location_id' => 'required',
             'date'=> 'required',
             'description' => 'nullable'
         ]);
@@ -48,7 +51,8 @@ class PartController extends Controller
         $suppliers = Supplier::orderBy('name')->get();
         $insurances = Insurance::orderBy('name')->get();
         $statuses = Status::orderBy('name')->get();
-        return view('parts.edit', ['part' => $part, 'cars' => $cars, 'suppliers' => $suppliers, 'insurances' => $insurances, 'statuses' => $statuses]);
+        $locations = Location::orderBy('name')->get();
+        return view('parts.edit', ['part' => $part, 'cars' => $cars, 'suppliers' => $suppliers, 'insurances' => $insurances, 'statuses' => $statuses, 'locations' => $locations]);
     }
 
     public function update(Part $part, Request $request){
@@ -59,6 +63,7 @@ class PartController extends Controller
             'supplier_id' => 'required',
             'insurance_id' => 'required',
             'status_id' => 'required',
+            'location_id' => 'required',
             'date'=> 'required',
             'description' => 'nullable'
         ]);

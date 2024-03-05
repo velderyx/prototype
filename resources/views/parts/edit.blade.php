@@ -54,6 +54,14 @@
                     </select>
                  </div>
                  <div class="form-group">
+                  <label>Lokasi</label>
+                   <select class="form-control" name="location_id">
+                       @foreach ($locations as $location)
+                       <option value="{{ $location->id }}" {{ $location->id == $part->location_id ? 'selected' : '' }}>{{ $location->name }}</option>
+                       @endforeach
+                   </select>
+                 </div>
+                 <div class="form-group">
                     <label>keterangan</label>
                     <input type="text" class="form-control" name="description" placeholder="Keterangan" value="{{ $part->description }}"/>
                  </div>

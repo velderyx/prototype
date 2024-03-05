@@ -14,6 +14,7 @@ class Part extends Model
         'name',
         'car_id',
         'plate',
+        'location_id',
         'supplier_id',
         'insurance_id',
         'status_id',
@@ -39,5 +40,10 @@ class Part extends Model
     public function status(): BelongsTo
     {
         return $this->belongsTo(Status::class);
+    }
+
+    public function location(): BelongsTo
+    {
+        return $this->belongsTo(location::class);
     }
 }
