@@ -27,6 +27,7 @@ class CarSeeder extends Seeder
             "Toyota Kijang Innova",
             "Toyota Rush",
             "Toyota Fortuner",
+            "Toyota Alphard",
             "Toyota Yaris",
             "Toyota",
             // Honda
