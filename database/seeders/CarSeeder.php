@@ -33,6 +33,7 @@ class CarSeeder extends Seeder
             // Honda
             "Honda Brio",
             "Honda HR-V",
+            "Honda BR-V",
             "Honda CR-V",
             "Honda City",
             "Honda Jazz",
@@ -45,6 +46,16 @@ class CarSeeder extends Seeder
             "Suzuki Carry",
             "Suzuki APV",
             "Suzuki",
+            // chevrolet
+            "Chevrolet",
+            "Chevrolet Aveo",
+            "Chevrolet  Orlando",
+            "Chevrolet Cruze",
+            "Chevrolet Trax",
+            "Chevrolet Captiva",
+            "Chevrolet Spin",
+            "Chevrolet Colorado",
+            "Chevrolet Trailblazer",
             // Daihatsu
             "Daihatsu Terios",
             "Daihatsu Xenia",
