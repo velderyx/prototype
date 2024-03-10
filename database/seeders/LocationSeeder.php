@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Models\Location;
 
 class LocationSeeder extends Seeder
 {
@@ -14,7 +15,7 @@ class LocationSeeder extends Seeder
     public function run(): void
     {
         $locationNames = [
-            "lainnya",
+            "#",
             "L1",
             "L2",
             "L3",
@@ -29,9 +30,15 @@ class LocationSeeder extends Seeder
         ];
 
         foreach ($locationNames as $name) {
-            DB::table('locations')->insert([
-                'name' => $name,
-            ]);
-         }
+            // Check if the model already exists in the database
+            $existingLocation = Location::where('name', $name)->first();
+
+            // If the model doesn't exist, insert it
+            if (!$existingLocation) {
+                Location::create([
+                    'name' => $name,
+                ]);
+            }
+        }
     }
 }

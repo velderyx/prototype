@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use App\Models\Insurance;
 
 class InsuranceSeeder extends Seeder
 {
@@ -46,13 +47,16 @@ class InsuranceSeeder extends Seeder
 
         ];
 
-        // Remove duplicates
-        $uniqueInsuranceNames = array_unique($insuranceNames);
+        foreach ($insuranceNames as $name) {
+            // Check if the model already exists in the database
+            $existingInsurance = Insurance::where('name', $name)->first();
 
-        foreach ($uniqueInsuranceNames as $name) {
-            DB::table('insurances')->insert([
-                'name' => $name,
-            ]);
-         }
+            // If the model doesn't exist, insert it
+            if (!$existingInsurance) {
+                Insurance::create([
+                    'name' => $name,
+                ]);
+            }
+        }
     }
 }

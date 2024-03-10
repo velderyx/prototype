@@ -16,6 +16,7 @@ return new class extends Migration
             $table->text('name');
             $table->foreignId('car_id')->constrained();
             $table->text('plate');
+            $table->foreignId('location_id')->constrained();
             $table->foreignId('supplier_id')->constrained();
             $table->foreignId('insurance_id')->constrained();
             $table->foreignId('status_id')->constrained();

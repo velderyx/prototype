@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use App\Models\Status;
 
 class StatusSeeder extends Seeder
 {
@@ -22,11 +23,16 @@ class StatusSeeder extends Seeder
         ];
 
         foreach ($statusNames as $name) {
-            DB::table('statuses')->insert([
-                'name' => $name,
-            ]);
-         }
+            // Check if the model already exists in the database
+            $existingStatus = Status::where('name', $name)->first();
 
+            // If the model doesn't exist, insert it
+            if (!$existingStatus) {
+                Status::create([
+                    'name' => $name,
+                ]);
+            }
+        }
 
     }
 }
