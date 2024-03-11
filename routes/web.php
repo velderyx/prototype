@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PartController;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\LoginController;
@@ -34,5 +35,8 @@ route::post('/part', [PartController::class, 'store'])->name('part.store');
 route::get('/part/{part}/edit', [PartController::class, 'edit'])->name('part.edit')->middleware('auth');
 route::put('/part/{part}/update', [PartController::class, 'update'])->name('part.update')->middleware('auth');
 route::get('/part/{part}/destroy', [PartController::class, 'destroy'])->name('part.destroy')->middleware('auth');
+
+
+route::get('/item', [ItemController::class, 'index'])->name('item.index')->middleware('auth');
 
 route::get('/test', [Controller::class, 'test'])->name('test.index')->middleware('auth');
