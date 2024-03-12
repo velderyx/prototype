@@ -10,15 +10,7 @@
                     <i class="fas fa-plus"></i>
                     <span>Tambah </span>
                 </a>
-                {{-- <div>
-                    @if(session()->has('success'))
-                        <div>
-                            {{ session('success') }}
-                        </div>
-                    @endif
-                </div> --}}
             </h1>
-
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -37,7 +29,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
-                <table class="table table-striped">
+                <table id="itemTable" class="table table-striped">
                   <thead>
                     <tr>
                       <th style="width: 10px">#</th>

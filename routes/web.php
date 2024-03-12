@@ -31,7 +31,7 @@ Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('layout.mai
 
 route::get('/part', [PartController::class, 'index'])->name('part.index')->middleware('auth');
 route::get('/part/create', [PartController::class, 'create'])->name('part.create')->middleware('auth');
-route::post('/part', [PartController::class, 'store'])->name('part.store');
+route::post('/part', [PartController::class, 'store'])->name('part.store')->middleware('auth');
 route::get('/part/{part}/edit', [PartController::class, 'edit'])->name('part.edit')->middleware('auth');
 route::put('/part/{part}/update', [PartController::class, 'update'])->name('part.update')->middleware('auth');
 route::get('/part/{part}/destroy', [PartController::class, 'destroy'])->name('part.destroy')->middleware('auth');

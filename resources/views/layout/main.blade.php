@@ -164,5 +164,20 @@
     });
   });
 </script>
+
+{{-- script for item tables --}}
+<script>
+    $(function () {
+      $("#itemTable").DataTable({
+        "responsive": true,
+        "lengthChange": false,
+        "autoWidth": false,
+        "paging": true,
+        "searching": false,
+        "ordering": true,
+        "info": true
+      });
+    });
+  </script>
 </body>
 </html>

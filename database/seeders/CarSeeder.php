@@ -24,7 +24,7 @@ class CarSeeder extends Seeder
             // Toyota
             "Toyota Agya",
             "Toyota Avanza",
-            "Toyota Kijang Innova",
+            "Toyota Innova",
             "Toyota Rush",
             "Toyota Fortuner",
             "Toyota Alphard",
