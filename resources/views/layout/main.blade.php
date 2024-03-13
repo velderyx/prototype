@@ -170,6 +170,7 @@
     $(function () {
       $("#itemTable").DataTable({
         "responsive": true,
+        "pageLength": 5,
         "lengthChange": false,
         "autoWidth": false,
         "paging": true,

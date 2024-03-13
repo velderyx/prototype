@@ -32,7 +32,7 @@
                 <table id="itemTable" class="table table-striped">
                   <thead>
                     <tr>
-                      <th style="width: 10px">#</th>
+                      <th style="width: 10px">No.</th>
                       <th>Tgl</th>
                       <th>Entitas</th>
                       <th style="width: 10px">Jumlah</th>
@@ -40,6 +40,62 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <tr>
+                      <td>1.</td>
+                      <td>05/07/2024</td>
+                      <td>Andreas</td>
+                      <td>1</td>
+                      <td>20</td>
+                    </tr>
+                    <tr>
+                      <td>1.</td>
+                      <td>05/07/2024</td>
+                      <td>Andreas</td>
+                      <td>1</td>
+                      <td>20</td>
+                    </tr>
+                    <tr>
+                      <td>1.</td>
+                      <td>05/07/2024</td>
+                      <td>Andreas</td>
+                      <td>1</td>
+                      <td>20</td>
+                    </tr>
+                    <tr>
+                      <td>1.</td>
+                      <td>05/07/2024</td>
+                      <td>Andreas</td>
+                      <td>1</td>
+                      <td>20</td>
+                    </tr>
+                    <tr>
+                      <td>1.</td>
+                      <td>05/07/2024</td>
+                      <td>Andreas</td>
+                      <td>1</td>
+                      <td>20</td>
+                    </tr>
+                    <tr>
+                      <td>1.</td>
+                      <td>05/07/2024</td>
+                      <td>Andreas</td>
+                      <td>1</td>
+                      <td>20</td>
+                    </tr>
+                    <tr>
+                      <td>1.</td>
+                      <td>05/07/2024</td>
+                      <td>Andreas</td>
+                      <td>1</td>
+                      <td>20</td>
+                    </tr>
+                    <tr>
+                      <td>1.</td>
+                      <td>05/07/2024</td>
+                      <td>Andreas</td>
+                      <td>1</td>
+                      <td>20</td>
+                    </tr>
                     <tr>
                       <td>1.</td>
                       <td>05/07/2024</td>

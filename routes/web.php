@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\PartController;
-use App\Http\Controllers\ItemController;
+use App\Http\Controllers\Items\ItemController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\LoginController;
