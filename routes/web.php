@@ -38,5 +38,6 @@ route::get('/part/{part}/destroy', [PartController::class, 'destroy'])->name('pa
 
 
 route::get('/item', [ItemController::class, 'index'])->name('item.index')->middleware('auth');
+route::post('/item', [ItemController::class, 'store'])->name('item.store')->middleware('auth');
 
 route::get('/test', [Controller::class, 'test'])->name('test.index')->middleware('auth');
