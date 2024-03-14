@@ -9,71 +9,37 @@ use App\Models\Item;
 class ItemController extends BaseController
 {
     public function index(){
-        $items = Item::all();
+        $distinctItemNames = Item::distinct()->pluck('itemName');
 
-        $itemsThinnerReducer = Item::where('itemName', 'thinner reducer')
-                                    ->orderBy('date', 'asc')
-                                    ->get();
+        // Initialize an array to store items grouped by item name
+        $itemsByItemName = [];
 
-        $itemsThinnerA = Item::where('itemName', 'thinner a')
-                                    ->orderBy('date', 'asc')
-                                    ->get();
-
-        $itemsslow = Item::where('itemName', 'slow')
-        ->orderBy('date', 'asc')
-        ->get();
-
-        return view('Items.index', ['itemsThinnerReducer' => $itemsThinnerReducer, 'itemsThinnerA' => $itemsThinnerA, 'itemsslow' => $itemsslow, 'items' => $items]);
+        // Fetch items for each distinct item name
+        foreach ($distinctItemNames as $itemName) {
+            $itemsByItemName[$itemName] = Item::where('itemName', $itemName)
+                                               ->orderBy('date', 'asc')
+                                               ->get();
+        }
+        return view('Items.index', ['itemsByItemName' => $itemsByItemName]);
     }
 
-    public function store(Request $request){
+    public function store(Request $request) {
         $data = $request->validate([
             'itemName' => 'required',
             'qty' => 'required',
-            'date'=> 'required'
+            'date' => 'required',
         ]);
 
-        // make variable for switch
-        $itemNameSwitch = $request->itemName;
-        $nameSwitch = $request->name;
-        $qtySwitch = $request->qty;
-        $dateSwitch = $request->date;
-        switch ($itemNameSwitch) {
-            case 'thinner reducer':
-                $thinnerReducer = Item::where('itemName', 'thinner reducer')->get();
-                Item::create([
-                    'itemName' => $itemNameSwitch,
-                    'name' => $nameSwitch,
-                    'qty' => $qtySwitch,
-                    'date' => $dateSwitch
-                ]);
-                break;
-            case 'thinner a':
-                $thinnerA = Item::where('itemName', 'thinner a')->get();
-                Item::create([
-                    'itemName' => $itemNameSwitch,
-                    'name' => $nameSwitch,
-                    'qty' => $qtySwitch,
-                    'date' => $dateSwitch
-                ]);
-                break;
-                case 'slow':
-                    $slow = Item::where('itemName', 'slow')->get();
-                    Item::create([
-                        'itemName' => $itemNameSwitch,
-                        'name' => $nameSwitch,
-                        'qty' => $qtySwitch,
-                        'date' => $dateSwitch
-                    ]);
-                    break;
-            default:
-                echo 'Unknown status.';
-        }
-        $compound2500 = Item::where('itemName', 'Compound 2500')->get();
+        // Create the item using the validated data
+        Item::create([
+            'itemName' => $data['itemName'],
+            'name' => $request->name ?? null,
+            'qty' => $data['qty'],
+            'date' => $data['date'],
+        ]);
 
-
-        // notice the difference between routes and view(on index)
-        return redirect(route('item.index'));
-
+        // Redirect to the index route
+        return redirect()->route('item.index');
     }
+
 }
