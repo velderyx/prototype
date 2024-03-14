@@ -15,9 +15,8 @@ return new class extends Migration
             $table->id();
             $table->date('date');
             $table->text('itemName');
-            $table->text('name');
-            $table->text('qty');
-            $table->text('balance');
+            $table->text('name')->nullable();
+            $table->decimal('qty');
             $table->timestamps();
         });
     }

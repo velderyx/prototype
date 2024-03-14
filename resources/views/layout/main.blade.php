@@ -95,6 +95,31 @@
                 </a>
               </li>
             </ul>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Bahan</p>
+                    <i class="right fas fa-angle-left"></i>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="{{ url('item') }}" class="nav-link">
+                        <i class="far fa-dot-circle nav-icon"></i>
+                        <p>Cairan</p>
+                      </a>
+                    </li>
+                  </ul>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="#" class="nav-link">
+                        <i class="far fa-dot-circle nav-icon"></i>
+                        <p>Bahan</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
           </li>
         </ul>
       </nav>
@@ -165,20 +190,21 @@
   });
 </script>
 
-{{-- script for item tables --}}
 <script>
-    $(function () {
-      $("#itemTable").DataTable({
+$(document).ready(function() {
+    // change table based on class insted of id
+    $('.table-striped').DataTable({
         "responsive": true,
-        "pageLength": 5,
+        "pageLength": 6,
         "lengthChange": false,
         "autoWidth": false,
         "paging": true,
         "searching": false,
         "ordering": true,
-        "info": true
-      });
+        "info": false,
+        "scrollY": "300px"
     });
-  </script>
+});
+</script>
 </body>
 </html>

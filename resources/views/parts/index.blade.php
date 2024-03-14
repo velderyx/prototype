@@ -33,9 +33,10 @@
             <div class="card">
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped" >
+                <table id="example1" class="table table-bordered" >
                   <thead>
                   <tr>
+                    <th>No.</th>
                     <th>Tgl</th>
                     <th>Plat Nomor</th>
                     <th>Nama</th>
@@ -49,9 +50,14 @@
                   </tr>
                   </thead>
                   <tbody>
+                    @php
+                        $totalParts = count($parts);
+                        $rowNumber = $totalParts;
+                    @endphp
                     @foreach($parts as $part)
                     <tr>
-                        <td>{{ date('Y/m/d', strtotime($part->date)) }}</td>
+                        <td>{{ $rowNumber-- }}</td>
+                        <td>{{ date('d/m/Y', strtotime($part->date)) }}</td>
                         <td>{{ $part->plate }}</td>
                         <td>{{ $part->name }}</td>
                         <td>{{ $part->car->name }}</td>
@@ -77,6 +83,7 @@
                   </tbody>
                   <tfoot>
                     <tr>
+                        <th>No.</th>
                         <th>Tgl</th>
                         <th>Plat Nomor</th>
                         <th>Nama</th>

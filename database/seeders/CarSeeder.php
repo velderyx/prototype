@@ -62,6 +62,7 @@ class CarSeeder extends Seeder
             "Daihatsu Sigra",
             "Daihatsu Ayla",
             "Daihatsu Gran Max",
+            "Daihatsu Luxio",
             "Daihatsu",
             // Mitsubishi
             "Mitsubishi Xpander",

@@ -12,7 +12,6 @@ class Item extends Model
         'itemName',
         'name',
         'date',
-        'qty',
-        'balance'
+        'qty'
     ];
 }
