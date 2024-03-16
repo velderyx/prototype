@@ -192,13 +192,13 @@
 
 <script>
 $(document).ready(function() {
-    // change table based on class insted of id
-    $('.table-striped').DataTable({
+    // change table based on class insted of id. thi is for item tables
+    $('.table-condensed').DataTable({
         "responsive": true,
         "pageLength": 6,
         "lengthChange": false,
         "autoWidth": false,
-        "paging": true,
+        "paging": false,
         "searching": false,
         "ordering": true,
         "info": false,
@@ -206,5 +206,19 @@ $(document).ready(function() {
     });
 });
 </script>
+
+<style>
+    /* table row on item tables */
+
+    .positive-row {
+        background-color: #00b100;
+        color: white;
+    }
+
+    .negative-row {
+        background-color: #ce0000;
+        color: white;
+    }
+</style>
 </body>
 </html>
