@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,4 +41,5 @@ route::get('/part/{part}/destroy', [PartController::class, 'destroy'])->name('pa
 route::get('/item', [ItemController::class, 'index'])->name('item.index')->middleware('auth');
 route::post('/item', [ItemController::class, 'store'])->name('item.store')->middleware('auth');
 
-route::get('/test', [Controller::class, 'test'])->name('test.index')->middleware('auth');
+route::get('/test', [TestController::class, 'test'])->name('test.index')->middleware('auth');
+route::post('/test', [TestController::class, 'store'])->name('test.store')->middleware('auth');

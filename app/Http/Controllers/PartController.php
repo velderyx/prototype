@@ -10,6 +10,7 @@ use App\Models\Supplier;
 use App\Models\Status;
 use App\Models\Location;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Validator;
 
 class PartController extends Controller
 {
@@ -29,18 +30,45 @@ class PartController extends Controller
 
     public function store(Request $request){
         $data = $request->validate([
-            'name' => 'required',
+            'names.*' => 'required',
             'car_id' => 'required',
             'plate' => 'required',
             'supplier_id' => 'required',
             'insurance_id' => 'required',
             'status_id' => 'required',
-            'location_id' => 'required',
+            'location_ids.*' => 'required',
             'date'=> 'required',
             'description' => 'nullable'
         ]);
 
-        $newPart = Part::create($data);
+        $car_id = $request->input('car_id');
+        $plate = $request->input('plate');
+        $supplier_id = $request->input('supplier_id');
+        $insurance_id = $request->input('insurance_id');
+        $status_id = $request->input('status_id');
+        $date = $request->input('date');
+        $description = $request->input('description');
+
+
+        foreach ($data['names'] as $key => $name) {
+            $location_id = $data['location_ids'][$key]; // Retrieve location_id for this part
+            $created = Part::create([
+                'name' => $name,
+                'car_id' => $car_id,
+                'plate' => $plate,
+                'supplier_id' => $supplier_id,
+                'insurance_id' => $insurance_id,
+                'status_id' => $status_id,
+                'location_id' => $location_id,
+                'date' => $date,
+                'description' => $description,
+            ]);
+
+            if (!$created) {
+                // Log or handle the error
+                return redirect()->back()->with('error', 'Failed to save data.');
+            }
+        }
 
         return redirect(route('part.index'));
 

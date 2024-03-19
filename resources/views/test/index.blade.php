@@ -1,47 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Interactive Room Blueprint</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-    }
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(10, 1fr);
-        grid-template-rows: repeat(10, 1fr);
-        height: 80vh;
-    }
-    .cell {
-        border: 1px solid #ccc;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .wall {
-        background-color: #333;
-    }
-    .door {
-        background-color: #aaa;
-    }
-    .window {
-        background-color: #8af;
-    }
-</style>
+    <title>Add Names and Town</title>
 </head>
 <body>
-<div class="grid">
-    <!-- Rows -->
-    <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
-    <div class="cell wall"></div><div class="cell wall"></div><div class="cell wall"></div><div class="cell wall"></div><div class="cell wall"></div><div class="cell wall"></div><div class="cell wall"></div><div class="cell wall"></div><div class="cell wall"></div><div class="cell wall"></div>
-    <div class="cell wall"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell wall"></div><div class="cell wall"></div>
-    <div class="cell wall"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell wall"></div><div class="cell wall"></div>
-    <div class="cell wall"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell wall"></div><div class="cell wall"></div>
-    <div class="cell wall"></div><div class="cell wall"></div><div class="cell wall"></div><div class="cell wall"></div><div class="cell wall"></div><div class="cell wall"></div><div class="cell wall"></div><div class="cell wall"></div><div class="cell wall"></div><div class="cell wall"></div>
-</div>
+    <h2>Add Names and Town</h2>
+
+    <form id="nameForm" action="{{ route('test.store') }}" method="post">
+        @csrf
+        <div id="nameInputs">
+            <div>
+                <label for="name1">Name 1:</label>
+                <input type="text" id="name1" name="names[]">
+                <button type="button" onclick="addNameInput()">+</button>
+                <button type="button" onclick="removeNameInput(this)">-</button>
+            </div>
+        </div>
+        <br>
+
+        <label for="town">Town:</label>
+        <input type="text" id="town" name="town">
+        <br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        let nameCounter = 1;
+
+        function addNameInput() {
+            nameCounter++;
+            const container = document.getElementById("nameInputs");
+            const div = document.createElement("div");
+            div.innerHTML = `
+                <label for="name${nameCounter}">Name ${nameCounter}:</label>
+                <input type="text" id="name${nameCounter}" name="names[]">
+                <button type="button" onclick="addNameInput()">+</button>
+                <button type="button" onclick="removeNameInput(this)">-</button>
+            `;
+            container.appendChild(div);
+        }
+
+        function removeNameInput(button) {
+            const div = button.parentElement;
+            div.remove();
+            nameCounter--;
+        }
+    </script>
 </body>
 </html>

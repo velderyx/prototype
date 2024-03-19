@@ -207,6 +207,9 @@ $(document).ready(function() {
 });
 </script>
 
+
+@stack("script")
+
 <style>
     /* table row on item tables */
 
