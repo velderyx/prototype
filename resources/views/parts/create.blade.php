@@ -21,29 +21,6 @@
                         <label>tanggal</label>
                         <input type="date" class="form-control" name="date" value="{{ old('date') }}" />
                     </div>
-                    <div class="form-group" id="nameInputs">
-                        <label>Nama</label>
-                        <button type="button" onclick="addNameInput()">+</button>
-                        <input type="text" class="form-control" id="name1" name="names[]" placeholder="nama part" value="{{ old('names1') }}" oninput="this.value = this.value.toUpperCase()"/>
-                        <label>Lokasi</label>
-                        <select class="form-control" id="location_id1" name="location_ids[]">
-                            @foreach ($locations as $location)
-                            <option value="{{ $location->id }}">{{ $location->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Mobil</label>
-                        <select class="form-control" name="car_id">
-                            @foreach ($cars as $car)
-                            <option value="{{ $car->id }}" {{ old('car_id') == $car->id ? 'selected' : '' }}>{{ $car->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>plat nomor</label>
-                        <input type="text" class="form-control" name="plate" placeholder="plat nomor" value="{{ old('plate') }}" oninput="this.value = this.value.toUpperCase()"/>
-                    </div>
                     <div class="form-group">
                     <label>Supplier</label>
                     <select class="form-control" name="supplier_id">
@@ -63,8 +40,31 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Keterangan</label>
-                        <input type="text" class="form-control" name="description" placeholder="Keterangan" value="{{ old('description') }}"/>
+                        <label>Mobil</label>
+                        <select class="form-control" name="car_id">
+                            @foreach ($cars as $car)
+                            <option value="{{ $car->id }}" {{ old('car_id') == $car->id ? 'selected' : '' }}>{{ $car->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>plat nomor</label>
+                        <input type="text" class="form-control" name="plate" placeholder="plat nomor" value="{{ old('plate') }}" oninput="this.value = this.value.toUpperCase()"/>
+                    </div>
+                    <div class="form-group" id="nameInputs">
+                        <label>Nama</label>
+                        <button type="button" onclick="addNameInput()">+</button>
+                        <input type="text" class="form-control" id="name1" name="names[]" placeholder="nama part" value="{{ old('names1') }}" oninput="this.value = this.value.toUpperCase()"/>
+                        <label>Lokasi</label>
+                        <select class="form-control" id="location_id1" name="location_ids[]">
+                            @foreach ($locations as $location)
+                            <option value="{{ $location->id }}">{{ $location->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Keterangan tambahan</label>
+                        <input type="text" class="form-control" name="description" placeholder="kosong" value="{{ old('description') }}"/>
                     </div>
                     <div class="form-group">
                         <label>Status</label>
