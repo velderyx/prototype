@@ -5,6 +5,11 @@ use App\Http\Controllers\Items\ItemController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CarController;
+use App\Http\Controllers\LocationController;
+use App\Http\Controllers\InsuranceController;
+use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\StatusController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 
@@ -40,6 +45,13 @@ route::get('/part/{part}/destroy', [PartController::class, 'destroy'])->name('pa
 
 route::get('/item', [ItemController::class, 'index'])->name('item.index')->middleware('auth');
 route::post('/item', [ItemController::class, 'store'])->name('item.store')->middleware('auth');
+
+// parts attributes
+route::post('/status', [StatusController::class, 'store'])->name('status.store')->middleware('auth');
+route::post('/car', [CarController::class, 'store'])->name('car.store')->middleware('auth');
+route::post('/insurance', [InsuranceController::class, 'store'])->name('insurance.store')->middleware('auth');
+route::post('/location', [LocationController::class, 'store'])->name('location.store')->middleware('auth');
+route::post('/supplier', [SupplierController::class, 'store'])->name('supplier.store')->middleware('auth');
 
 route::get('/test', [TestController::class, 'test'])->name('test.index')->middleware('auth');
 route::post('/test', [TestController::class, 'store'])->name('test.store')->middleware('auth');

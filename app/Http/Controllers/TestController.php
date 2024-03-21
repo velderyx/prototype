@@ -40,4 +40,19 @@ class TestController extends Controller
         // Redirect back with a success message
         return redirect()->back()->with('success', 'Data saved successfully!');
     }
+
+    public function findSumCombination(){
+        $arr1 = [
+            1,
+            2,
+            5,
+            5,
+            6,
+            7,
+            8,
+        ];
+
+        $target = 13;
+
+    }
 }

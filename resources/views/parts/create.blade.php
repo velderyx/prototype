@@ -23,29 +23,38 @@
                     </div>
                     <div class="form-group">
                     <label>Supplier</label>
-                    <select class="form-control" name="supplier_id">
-                        @foreach ($suppliers as $supplier)
-                        <option value="{{ $supplier->id }}" {{ old('supplier_id') == $supplier->id ? 'selected' : '' }}>
-                            {{ $supplier->name }}
-                        </option>
-                        @endforeach
-                    </select>
+                        <div class="d-flex">
+                            <select class="form-control" name="supplier_id">
+                                @foreach ($suppliers as $supplier)
+                                <option value="{{ $supplier->id }}" {{ old('supplier_id') == $supplier->id ? 'selected' : '' }}>
+                                    {{ $supplier->name }}
+                                </option>
+                                @endforeach
+                            </select>
+                            <button type="button" data-toggle="modal" data-target="#supplierModal">+</button>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label>Asuransi</label>
-                        <select class="form-control" name="insurance_id">
-                            @foreach ($insurances as $insurance)
-                            <option value="{{ $insurance->id }}" {{ old('insurance_id') == $insurance->id ? 'selected' : '' }}>{{ $insurance->name }}</option>
-                            @endforeach
-                        </select>
+                        <div class="d-flex">
+                            <select class="form-control" name="insurance_id">
+                                @foreach ($insurances as $insurance)
+                                <option value="{{ $insurance->id }}" {{ old('insurance_id') == $insurance->id ? 'selected' : '' }}>{{ $insurance->name }}</option>
+                                @endforeach
+                            </select>
+                            <button type="button" data-toggle="modal" data-target="#insuranceModal">+</button>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label>Mobil</label>
-                        <select class="form-control" name="car_id">
-                            @foreach ($cars as $car)
-                            <option value="{{ $car->id }}" {{ old('car_id') == $car->id ? 'selected' : '' }}>{{ $car->name }}</option>
-                            @endforeach
-                        </select>
+                        <div class="d-flex">
+                            <select class="form-control" name="car_id">
+                                @foreach ($cars as $car)
+                                <option value="{{ $car->id }}" {{ old('car_id') == $car->id ? 'selected' : '' }}>{{ $car->name }}</option>
+                                @endforeach
+                            </select>
+                            <button type="button" data-toggle="modal" data-target="#carModal">+</button>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label>plat nomor</label>
@@ -56,11 +65,14 @@
                         <button type="button" onclick="addNameInput()">+</button>
                         <input type="text" class="form-control" id="name1" name="names[]" placeholder="nama part" value="{{ old('names1') }}" oninput="this.value = this.value.toUpperCase()"/>
                         <label>Lokasi</label>
-                        <select class="form-control" id="location_id1" name="location_ids[]">
-                            @foreach ($locations as $location)
-                            <option value="{{ $location->id }}">{{ $location->name }}</option>
-                            @endforeach
-                        </select>
+                        <div class="d-flex">
+                            <select class="form-control" id="location_id1" name="location_ids[]">
+                                @foreach ($locations as $location)
+                                <option value="{{ $location->id }}">{{ $location->name }}</option>
+                                @endforeach
+                            </select>
+                            <button type="button" data-toggle="modal" data-target="#locationModal">+</button>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label>Keterangan tambahan</label>
@@ -90,6 +102,153 @@
          </div>
        </div>
        <!-- /.row -->
+
+       {{-- status modal  --}}
+       <div class="modal fade" id="statusModal" tabindex="-1" aria-labelledby="statusModalModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="{{ route('status.store') }}" method="POST">
+                    @csrf <!-- Add CSRF token -->
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="newItemModalLabel"> Tambah Nama Status</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Input fields for your form -->
+                        <div class="form-group">
+                            <label>Nama </label>
+                            <input type="text" class="form-control" id="name1" name="names[]">
+                        </div>
+                        <!-- Add more input fields as needed -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+       </div>
+
+       {{-- car modal --}}
+       <div class="modal fade" id="carModal" tabindex="-1" aria-labelledby="carModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="{{ route('car.store') }}" method="POST">
+                    @csrf <!-- Add CSRF token -->
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="newItemModalLabel"> Tambah Nama jenis Mobil</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Input fields for your form -->
+                        <div class="form-group">
+                            <label>Nama </label>
+                            <input type="text" placeholder="contoh: Toyota Avanza" class="form-control" id="name1" name="names[]">
+                        </div>
+                        <!-- Add more input fields as needed -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+       </div>
+
+        {{-- insurance modal --}}
+       <div class="modal fade" id="insuranceModal" tabindex="-1" aria-labelledby="insuranceModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="{{ route('insurance.store') }}" method="POST">
+                    @csrf <!-- Add CSRF token -->
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="insuranceModalLabel"> Tambah Nama Asuransi</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Input fields for your form -->
+                        <div class="form-group">
+                            <label>Nama </label>
+                            <input type="text" placeholder="contoh: Sonwelis Takaful" class="form-control" id="name1" name="names[]">
+                        </div>
+                        <!-- Add more input fields as needed -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+       </div>
+
+       {{-- supplier modal --}}
+       <div class="modal fade" id="supplierModal" tabindex="-1" aria-labelledby="supplierModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="{{ route('supplier.store') }}" method="POST">
+                    @csrf <!-- Add CSRF token -->
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="supplierModalLabel"> Tambah Nama Supplier</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Input fields for your form -->
+                        <div class="form-group">
+                            <label>Nama </label>
+                            <input type="text" placeholder="contoh: Rajawali" class="form-control" id="name1" name="names[]">
+                        </div>
+                        <!-- Add more input fields as needed -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+       </div>
+
+
+        {{-- location modal --}}
+        <div class="modal fade" id="locationModal" tabindex="-1" aria-labelledby="locationModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form action="{{ route('location.store') }}" method="POST">
+                        @csrf <!-- Add CSRF token -->
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="locationModalLabel"> Tambah Nama Asuransi</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Input fields for your form -->
+                            <div class="form-group">
+                                <label>Nama </label>
+                                <input type="text" placeholder="contoh: L2" class="form-control" id="name1" name="names[]">
+                            </div>
+                            <!-- Add more input fields as needed -->
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+           </div>
+
      </div><!-- /.container-fluid -->
    </section>
 @endsection
@@ -130,8 +289,6 @@
         window.onload = function() {
             alert("{{ $errors->first() }}");
         }
-
-
     </script>
 @endif
 
