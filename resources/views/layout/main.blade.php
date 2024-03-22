@@ -114,7 +114,7 @@
                     <li class="nav-item">
                       <a href="#" class="nav-link">
                         <i class="far fa-dot-circle nav-icon"></i>
-                        <p>Bahan</p>
+                        <p>Bahan (soon...)</p>
                       </a>
                     </li>
                   </ul>

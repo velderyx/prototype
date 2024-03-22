@@ -81,7 +81,9 @@
                                 <form action="{{ route('item.store') }}" method="POST">
                                     @csrf <!-- Add CSRF token -->
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="{{ Str::camel($itemName) }}ModalLabel">gunakan tanda minus - pada qty untuk pengambilan </h5>
+                                        <h5 class="modal-title" id="{{ Str::camel($itemName) }}ModalLabel">
+                                            <strong>Gunakan tanda minus (-) pada qty untuk pengambilan</strong>
+                                        </h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -98,7 +100,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="qty">qty</label>
-                                            <input type="number" class="form-control" id="qty" name="qty">
+                                            <input type="number" class="form-control" placeholder="ambil (-1), tambah (4)" id="qty" name="qty">
                                         </div>
                                         <div class="form-group" style="display: none;">
                                             <label for="itemName">Item name</label>
