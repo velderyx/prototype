@@ -57,9 +57,15 @@
         <div class="image">
           <img src="{{ asset('liefs-logo.png') }}" class="img-circle elevation-2" alt="User Image">
         </div>
-        <div class="info">
+
+        {{-- show user if loged in --}}
+        {{-- <div class="info">
           <a href="#" class="d-block">{{ auth()->user()->name}}</a>
-        </div>
+        </div> --}}
+
+        <div class="info">
+            <a href="#" class="d-block">Liefs User</a>
+          </div>
       </div>
 
       <!-- SidebarSearch Form -->
