@@ -19,12 +19,12 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label>tanggal</label>
-                        <input type="date" class="form-control" name="date" value="{{ old('date') }}" />
+                        <input id="date"type="date" class="form-control" name="date" value="{{ old('date') }}" />
                     </div>
                     <div class="form-group">
                     <label>Supplier</label>
                         <div class="d-flex">
-                            <select class="form-control" name="supplier_id">
+                            <select id="supplier_id" class="form-control" name="supplier_id">
                                 @foreach ($suppliers as $supplier)
                                 <option value="{{ $supplier->id }}" {{ old('supplier_id') == $supplier->id ? 'selected' : '' }}>
                                     {{ $supplier->name }}
@@ -37,7 +37,7 @@
                     <div class="form-group">
                         <label>Asuransi</label>
                         <div class="d-flex">
-                            <select class="form-control" name="insurance_id">
+                            <select id="insurance_id" class="form-control" name="insurance_id">
                                 @foreach ($insurances as $insurance)
                                 <option value="{{ $insurance->id }}" {{ old('insurance_id') == $insurance->id ? 'selected' : '' }}>{{ $insurance->name }}</option>
                                 @endforeach
@@ -48,7 +48,7 @@
                     <div class="form-group">
                         <label>Mobil</label>
                         <div class="d-flex">
-                            <select class="form-control" name="car_id">
+                            <select id="car_id" class="form-control" name="car_id">
                                 @foreach ($cars as $car)
                                 <option value="{{ $car->id }}" {{ old('car_id') == $car->id ? 'selected' : '' }}>{{ $car->name }}</option>
                                 @endforeach
@@ -58,15 +58,15 @@
                     </div>
                     <div class="form-group">
                         <label>plat nomor</label>
-                        <input type="text" class="form-control" name="plate" placeholder="plat nomor" value="{{ old('plate') }}" oninput="this.value = this.value.toUpperCase()"/>
+                        <input id="plate" type="text" class="form-control" name="plate" placeholder="plat nomor" value="{{ old('plate') }}" oninput="this.value = this.value.toUpperCase()"/>
                     </div>
                     <div class="form-group" id="nameInputs">
                         <label>Nama</label>
                         <button type="button" onclick="addNameInput()">+</button>
-                        <input type="text" class="form-control" id="name1" name="names[]" placeholder="nama part" value="{{ old('names1') }}" oninput="this.value = this.value.toUpperCase()"/>
+                        <input id="name1" type="text" class="form-control" id="name1" name="names[]" placeholder="nama part" value="{{ old('names1') }}" oninput="this.value = this.value.toUpperCase()"/>
                         <label>Lokasi</label>
                         <div class="d-flex">
-                            <select class="form-control" id="location_id1" name="location_ids[]">
+                            <select id="location_id1" class="form-control" id="location_id1" name="location_ids[]">
                                 @foreach ($locations as $location)
                                 <option value="{{ $location->id }}">{{ $location->name }}</option>
                                 @endforeach
@@ -76,7 +76,7 @@
                     </div>
                     <div class="form-group">
                         <label>Keterangan tambahan</label>
-                        <input type="text" class="form-control" name="description" placeholder="kosong" value="{{ old('description') }}"/>
+                        <input id="description" type="text" class="form-control" name="description" placeholder="kosong" value="{{ old('description') }}"/>
                     </div>
                     <div class="form-group">
                         <label>Status</label>
@@ -227,7 +227,7 @@
                     <form action="{{ route('location.store') }}" method="POST">
                         @csrf <!-- Add CSRF token -->
                         <div class="modal-header">
-                            <h5 class="modal-title" id="locationModalLabel"> Tambah Nama Asuransi</h5>
+                            <h5 class="modal-title" id="locationModalLabel"> Tambah Nama Lokasi</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -240,6 +240,81 @@
                             </div>
                             <!-- Add more input fields as needed -->
                         </div>
+
+
+                        <div class="form-group">
+                            <label>tanggal</label>
+                            <input id="dateModal"type="date" class="form-control" name="dateModal" value="{{ old('date') }}" />
+                        </div>
+                        <div class="form-group" >
+                        <label>Supplier</label>
+                            <div class="d-flex">
+                                <select id="supplier_idModal" class="form-control" name="supplier_idModal">
+                                    @foreach ($suppliers as $supplier)
+                                    <option value="{{ $supplier->id }}" {{ old('supplier_id') == $supplier->id ? 'selected' : '' }}>
+                                        {{ $supplier->name }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                                <button type="button" data-toggle="modal" data-target="#supplierModal">+</button>
+                            </div>
+                        </div>
+                        <div class="form-group" style="display: none;">
+                            <label>Asuransi</label>
+                            <div class="d-flex">
+                                <select id="insurance_idModal" class="form-control" name="insurance_idModal">
+                                    @foreach ($insurances as $insurance)
+                                    <option value="{{ $insurance->id }}" {{ old('insurance_id') == $insurance->id ? 'selected' : '' }}>{{ $insurance->name }}</option>
+                                    @endforeach
+                                </select>
+                                <button type="button" data-toggle="modal" data-target="#insuranceModal">+</button>
+                            </div>
+                        </div>
+                        <div class="form-group" style="display: none;">
+                            <label>Mobil</label>
+                            <div class="d-flex">
+                                <select id="car_idModal" class="form-control" name="car_idModal">
+                                    @foreach ($cars as $car)
+                                    <option value="{{ $car->id }}" {{ old('car_id') == $car->id ? 'selected' : '' }}>{{ $car->name }}</option>
+                                    @endforeach
+                                </select>
+                                <button type="button" data-toggle="modal" data-target="#carModal">+</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>plat nomor</label>
+                            <input id="plateModal" type="text" class="form-control" name="plateModal" placeholder="plat nomor" value="{{ old('plate') }}" oninput="this.value = this.value.toUpperCase()"/>
+                        </div>
+                        <div class="form-group" id="nameInputs" style="display: none;">
+                            <label>Nama</label>
+                            <button type="button" onclick="addNameInput()">+</button>
+                            <input id="name1Modal" type="text" class="form-control" id="name1Modal" name="names[]" placeholder="nama part" value="{{ old('names1') }}" oninput="this.value = this.value.toUpperCase()"/>
+                            <label>Lokasi</label>
+                            <div class="d-flex">
+                                <select id="location_id1Modal" class="form-control" id="location_id1Modal" name="location_ids[]">
+                                    @foreach ($locations as $location)
+                                    <option value="{{ $location->id }}">{{ $location->name }}</option>
+                                    @endforeach
+                                </select>
+                                <button type="button" data-toggle="modal" data-target="#locationModal" onclick="populateModal()">+</button>
+                            </div>
+                        </div>
+                        <div class="form-group" style="display: none;">
+                            <label>Keterangan tambahan</label>
+                            <input id="descriptionModal" type="text" class="form-control" name="descriptionModal" placeholder="kosong" value="{{ old('description') }}"/>
+                        </div>
+                        <div class="form-group" style="display: none;">
+                            <label>Status</label>
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" id="customRadio1Modal" name="status_idModal" value="1" checked>
+                                <label for="customRadio1" class="custom-control-label" >ada</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input class="custom-control-input" type="radio" id="customRadio2Modal" name="status_idModal" value="2">
+                                <label for="customRadio2" class="custom-control-label">diambil</label>
+                            </div>
+                        </div>
+
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Save</button>
@@ -247,7 +322,7 @@
                     </form>
                 </div>
             </div>
-           </div>
+        </div>
 
      </div><!-- /.container-fluid -->
    </section>
@@ -275,12 +350,39 @@
             <button type="button" onclick="removeNameInput('${divId}')">Remove</button> <!-- Pass divId to removeNameInput -->
         `;
         container.appendChild(div);
+
+
+
     }
 
     function removeNameInput(divId) {
         const div = document.getElementById(divId); // Get div by ID
         div.remove();
         nameCounter--;
+    }
+</script>
+
+<script>
+    // Event listener for input fields in the non-modal form
+    document.getElementById('date').addEventListener('input', populateModal);
+    document.getElementById('supplier_id').addEventListener('input', populateModal);
+    function populateModal() {
+        // Get input values
+        var date = document.getElementById('date').value;
+        var date = document.getElementById('supplier_id').value;
+        var date = document.getElementById('insurance_id').value;
+        var date = document.getElementById('car_id').value;
+        var date = document.getElementById('plate').value;
+        var date = document.getElementById('description').value;
+
+        // Populate modal fields
+        document.getElementById('dateModel').value = date;
+        document.getElementById('supplier_idModel').value = supplier_id;
+        document.getElementById('insurance_idModel').value = insurance_id;
+        document.getElementById('car_idModel').value = car_id;
+        document.getElementById('plateModel').value = plate;
+        document.getElementById('descriptionModel').value = description;
+
     }
 </script>
 
