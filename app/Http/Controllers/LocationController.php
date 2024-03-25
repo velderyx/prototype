@@ -32,6 +32,6 @@ class LocationController extends Controller
         // $date = $request->input('date');
         // $description = $request->input('description');
         // return view('parts.create', ['car' => $car_id, 'plate' => $plate, 'supplier' => $supplier_id, 'insurance' => $insurance_id, 'status' => $status_id, 'date' => $date, 'description' => $description]);
-        return view('parts.create');
+        return redirect(route('part.create'));
     }
 }

@@ -363,7 +363,7 @@
     }
 </script>
 
-<script>
+{{-- <script>
     // Event listener for input fields in the non-modal form
     document.getElementById('date').addEventListener('input', populateModal);
     document.getElementById('supplier_id').addEventListener('input', populateModal);
@@ -385,7 +385,7 @@
         document.getElementById('descriptionModel').value = description;
 
     }
-</script>
+</script> --}}
 
 @if ($errors->any())
     <script>
