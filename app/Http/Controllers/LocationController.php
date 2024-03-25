@@ -24,13 +24,14 @@ class LocationController extends Controller
         }
 
 
-        $car_id = $request->input('car_id');
-        $plate = $request->input('plate');
-        $supplier_id = $request->input('supplier_id');
-        $insurance_id = $request->input('insurance_id');
-        $status_id = $request->input('status_id');
-        $date = $request->input('date');
-        $description = $request->input('description');
-        return view('parts.create', ['car' => $car_id, 'plate' => $plate, 'supplier' => $supplier_id, 'insurance' => $insurance_id, 'status' => $status_id, 'date' => $date, 'description' => $description]);
+        // $car_id = $request->input('car_id');
+        // $plate = $request->input('plate');
+        // $supplier_id = $request->input('supplier_id');
+        // $insurance_id = $request->input('insurance_id');
+        // $status_id = $request->input('status_id');
+        // $date = $request->input('date');
+        // $description = $request->input('description');
+        // return view('parts.create', ['car' => $car_id, 'plate' => $plate, 'supplier' => $supplier_id, 'insurance' => $insurance_id, 'status' => $status_id, 'date' => $date, 'description' => $description]);
+        return view('parts.create');
     }
 }
