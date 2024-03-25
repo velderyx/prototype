@@ -242,7 +242,8 @@
                         </div>
 
 
-                        <div class="form-group">
+                        {{-- for later --}}
+                        {{-- <div class="form-group">
                             <label>tanggal</label>
                             <input id="dateModal"type="date" class="form-control" name="dateModal" value="{{ old('date') }}" />
                         </div>
@@ -313,7 +314,7 @@
                                 <input class="custom-control-input" type="radio" id="customRadio2Modal" name="status_idModal" value="2">
                                 <label for="customRadio2" class="custom-control-label">diambil</label>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
