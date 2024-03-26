@@ -24,35 +24,21 @@
                     <div class="form-group">
                     <label>Supplier</label>
                         <div class="d-flex">
-                            <select id="supplier_id" class="form-control" name="supplier_id">
-                                @foreach ($suppliers as $supplier)
-                                <option value="{{ $supplier->id }}" {{ old('supplier_id') == $supplier->id ? 'selected' : '' }}>
-                                    {{ $supplier->name }}
-                                </option>
-                                @endforeach
-                            </select>
+                            @livewire('partAttribute', ['section' => 'suppliers'])
                             <button type="button" data-toggle="modal" data-target="#supplierModal">+</button>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Asuransi</label>
                         <div class="d-flex">
-                            <select id="insurance_id" class="form-control" name="insurance_id">
-                                @foreach ($insurances as $insurance)
-                                <option value="{{ $insurance->id }}" {{ old('insurance_id') == $insurance->id ? 'selected' : '' }}>{{ $insurance->name }}</option>
-                                @endforeach
-                            </select>
+                            @livewire('partAttribute', ['section' => 'insurances'])
                             <button type="button" data-toggle="modal" data-target="#insuranceModal">+</button>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Mobil</label>
                         <div class="d-flex">
-                            <select id="car_id" class="form-control" name="car_id">
-                                @foreach ($cars as $car)
-                                <option value="{{ $car->id }}" {{ old('car_id') == $car->id ? 'selected' : '' }}>{{ $car->name }}</option>
-                                @endforeach
-                            </select>
+                            @livewire('partAttribute', ['section' => 'cars'])
                             <button type="button" data-toggle="modal" data-target="#carModal">+</button>
                         </div>
                     </div>
@@ -362,30 +348,6 @@
         nameCounter--;
     }
 </script>
-
-{{-- <script>
-    // Event listener for input fields in the non-modal form
-    document.getElementById('date').addEventListener('input', populateModal);
-    document.getElementById('supplier_id').addEventListener('input', populateModal);
-    function populateModal() {
-        // Get input values
-        var date = document.getElementById('date').value;
-        var date = document.getElementById('supplier_id').value;
-        var date = document.getElementById('insurance_id').value;
-        var date = document.getElementById('car_id').value;
-        var date = document.getElementById('plate').value;
-        var date = document.getElementById('description').value;
-
-        // Populate modal fields
-        document.getElementById('dateModel').value = date;
-        document.getElementById('supplier_idModel').value = supplier_id;
-        document.getElementById('insurance_idModel').value = insurance_id;
-        document.getElementById('car_idModel').value = car_id;
-        document.getElementById('plateModel').value = plate;
-        document.getElementById('descriptionModel').value = description;
-
-    }
-</script> --}}
 
 @if ($errors->any())
     <script>

@@ -10,6 +10,8 @@ use App\Http\Controllers\LocationController;
 use App\Http\Controllers\InsuranceController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\StatusController;
+use App\Http\Livewire\PartLivewire;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 
