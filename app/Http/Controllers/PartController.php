@@ -25,7 +25,10 @@ class PartController extends Controller
         $insurances = Insurance::orderBy('name')->get();
         $statuses = Status::orderBy('name')->get();
         $locations = Location::orderBy('name')->get();
-        return view('parts.create', ['cars' => $cars, 'suppliers' => $suppliers, 'insurances' => $insurances, 'statuses' => $statuses, 'locations' => $locations, 'attribute' => 'qqqq']);
+
+
+        $test = session('test');
+        return view('parts.create', ['test' => $test,'cars' => $cars, 'suppliers' => $suppliers, 'insurances' => $insurances, 'statuses' => $statuses, 'locations' => $locations, 'attribute' => 'qqqq']);
     }
 
     public function store(Request $request){

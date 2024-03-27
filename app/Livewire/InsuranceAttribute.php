@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Livewire;
-use Illuminate\Http\Request;
 
 use Livewire\Component;
 use App\Models\Part;
@@ -11,28 +10,8 @@ use App\Models\Supplier;
 use App\Models\Status;
 use App\Models\Location;
 
-class PartAttribute extends Component
+class InsuranceAttribute extends Component
 {
-    public function store(Request $request){
-        $data = $request->validate([
-            'names.*' => 'required'
-        ]);
-
-       foreach ($data['names'] as $name) { // Retrieve location_id for this part
-            $created = insurance::create([
-                'name' => $name,
-            ]);
-
-            if (!$created) {
-                // Log or handle the error
-                return redirect()->back()->with('error', 'Failed to save data.');
-            }
-        }
-
-        // session(['test' => 'testttt']);
-
-        // return Redirect::route('part.create');
-    }
 
     public $name;
     public function storeData()
@@ -47,8 +26,16 @@ class PartAttribute extends Component
             'name' => $this->name,
         ]);
 
-        // Optionally, you can show a success message
-        session()->flash('message', 'Data stored successfully.');
+        // Reset the input field
+        $this->name = '';
+
+        // Update the insurancesLive property
+        $this->insurancesLive = Insurance::all();
+
+
+        // Close the form modal
+        $this->emit('closeModal');
+
     }
 
 
@@ -85,6 +72,6 @@ class PartAttribute extends Component
 
     public function render()
     {
-        return view('livewire.part.part-attribute');
+        return view('livewire.insurance-attribute');
     }
 }

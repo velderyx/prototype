@@ -31,7 +31,7 @@
                     <div class="form-group">
                         <label>Asuransi</label>
                         <div class="d-flex">
-                            @livewire('partAttribute', ['section' => 'insurances'])
+                            @livewire('insuranceAttribute')
                             <button type="button" data-toggle="modal" data-target="#insuranceModal">+</button>
                         </div>
                     </div>
@@ -102,12 +102,10 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <!-- Input fields for your form -->
                         <div class="form-group">
                             <label>Nama </label>
                             <input type="text" class="form-control" id="name1" name="names[]">
                         </div>
-                        <!-- Add more input fields as needed -->
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -150,29 +148,7 @@
         {{-- insurance modal --}}
        <div class="modal fade" id="insuranceModal" tabindex="-1" aria-labelledby="insuranceModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content">
-                <form action="{{ route('insurance.store') }}" method="POST">
-                    @csrf <!-- Add CSRF token -->
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="insuranceModalLabel"> Tambah Nama Asuransi</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- Input fields for your form -->
-                        <div class="form-group">
-                            <label>Nama </label>
-                            <input type="text" placeholder="contoh: Sonwelis Takaful" class="form-control" id="name1" name="names[]">
-                        </div>
-                        <!-- Add more input fields as needed -->
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save</button>
-                    </div>
-                </form>
-            </div>
+            @livewire('partAttribute', ['section' => 'insuranceForm'])
         </div>
        </div>
 

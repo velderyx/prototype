@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\insurance;
+use Illuminate\Support\Facades\Redirect;
 
 class InsuranceController extends Controller
 {
@@ -23,7 +24,8 @@ class InsuranceController extends Controller
             }
         }
 
+        // session(['test' => 'testttt']);
 
-        return redirect(route('part.create'));
+        // return Redirect::route('part.create');
     }
 }

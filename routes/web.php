@@ -51,7 +51,7 @@ route::post('/item', [ItemController::class, 'store'])->name('item.store');
 // parts attributes
 route::post('/status', [StatusController::class, 'store'])->name('status.store');
 route::post('/car', [CarController::class, 'store'])->name('car.store');
-route::post('/insurance', [InsuranceController::class, 'store'])->name('insurance.store');
+route::post('/insurance', [PartLivewire::class, 'store'])->name('insurance.store');
 route::post('/location', [LocationController::class, 'store'])->name('location.store');
 route::post('/supplier', [SupplierController::class, 'store'])->name('supplier.store');
 
