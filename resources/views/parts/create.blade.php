@@ -28,13 +28,7 @@
                             <button type="button" data-toggle="modal" data-target="#supplierModal">+</button>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label>Asuransi</label>
-                        <div class="d-flex">
-                            @livewire('insuranceAttribute')
-                            <button type="button" data-toggle="modal" data-target="#insuranceModal">+</button>
-                        </div>
-                    </div>
+                    @livewire('insuranceAttribute')
                     <div class="form-group">
                         <label>Mobil</label>
                         <div class="d-flex">
@@ -89,6 +83,10 @@
        </div>
        <!-- /.row -->
 
+       {{-- insurance modal --}}
+        @livewire('insuranceFormModal')
+
+
        {{-- status modal  --}}
        <div class="modal fade" id="statusModal" tabindex="-1" aria-labelledby="statusModalModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -142,13 +140,6 @@
                     </div>
                 </form>
             </div>
-        </div>
-       </div>
-
-        {{-- insurance modal --}}
-       <div class="modal fade" id="insuranceModal" tabindex="-1" aria-labelledby="insuranceModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            @livewire('partAttribute', ['section' => 'insuranceForm'])
         </div>
        </div>
 
