@@ -21,6 +21,14 @@ class CarSeeder extends Seeder
     {
         $carModels = array(
             "Lainnya",
+            // Land Rover
+            "Land Rover Defender",
+            "Land Rover Discovery",
+            "Land Rover Discovery Sport",
+            "Land Rover Range Rover",
+            "Land Rover Range Rover Evoque",
+            "Land Rover Range Rover Sport",
+            "Land Rover Range Rover Velar",
             // Toyota
             "Toyota Agya",
             "Toyota Avanza",

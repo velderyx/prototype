@@ -26,25 +26,22 @@ class InsuranceFormModal extends Component
         // Reset the input field
         $this->name = '';
 
-        // Update the insurancesLive property
-        $this->insurancesLive = Insurance::all();
+        $this->updateInsurance();
 
     }
+
+    public function updateInsurance(){
+        $this->dispatch('insurancesUpdate');
+    }
+
+    public function closeModal(){
+        $this->dispatch('closeTheModal');
+    }
+
 
     public function render()
     {
-        return view('livewire.insurance-form-modal',
-        [
-            'insurancesLive' => $this->insurancesLive,
-        ]);
+        return view('livewire.insurance-form-modal');
     }
 
-    public function updateOptions()
-    {
-        // Update the options list here (for example, fetch new options from a database)
-        $this->insurancesLive = Insurance::all();
-
-
-        $this->dispatch('postAdded');
-    }
 }

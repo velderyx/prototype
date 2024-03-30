@@ -12,12 +12,29 @@ use App\Models\Location;
 
 class InsuranceAttribute extends Component
 {
-
+    public $title = 'Asuransi';
     public $insurancesLive;
 
     public function mount(){
         $this->insurancesLive = Insurance::orderBy('name')->get();
     }
+
+    protected $listeners = ['insurancesUpdate' => 'updateInsurances'];
+
+
+    public function updateInsurances(){
+        $this -> title = 'berubah title';
+        $this->insurancesLive = $this->fetchInsurances();
+    }
+
+    public function fetchInsurances()
+    {
+    // Your logic to fetch and return the updated insurance list
+    // For example:
+        return Insurance::orderBy('name')->get();
+    }
+
+
 
     public function render()
     {

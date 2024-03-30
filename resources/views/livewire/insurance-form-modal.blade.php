@@ -6,7 +6,7 @@
                     @csrf <!-- Add CSRF token -->
                     <div class="modal-header">
                         <h5 class="modal-title" id="insuranceModalLabel">Tambah Nama Asuransi</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" wire:click="closeModal">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -18,10 +18,9 @@
                         </div>
                         <!-- Add more input fields as needed -->
                     </div>
-                    <button wire:click="updateOptions">Update Options</button>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" wire:loading.attr="disabled">Save</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" wire:click="closeModal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
                     </div>
                 </form>
             </div>

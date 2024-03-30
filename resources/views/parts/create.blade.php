@@ -28,7 +28,9 @@
                             <button type="button" data-toggle="modal" data-target="#supplierModal">+</button>
                         </div>
                     </div>
+                    {{-- insurance attirbute --}}
                     @livewire('insuranceAttribute')
+                    {{-- end insurance attirbute --}}
                     <div class="form-group">
                         <label>Mobil</label>
                         <div class="d-flex">
