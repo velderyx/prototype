@@ -11,6 +11,7 @@ use App\Http\Controllers\InsuranceController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\StatusController;
 use App\Http\Livewire\PartLivewire;
+use App\Livewire\PartIndex2;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
@@ -25,6 +26,8 @@ use App\Http\Controllers\TestController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/partindex2',[PartIndex2::class, 'index'])->name('part.index2');
 
 Route::get('/', function () {
     return redirect('/part');
