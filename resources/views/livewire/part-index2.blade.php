@@ -1,5 +1,10 @@
 
 <div class="card-body">
+    {{-- <label for="statusFilter">Filter by Status:</label>
+    <select wire:model="statusFilter" id="statusFilter" wire:change="updateStatus">
+        <option value="1">Status 1</option>
+        <option value="2">Status 2</option>
+    </select> --}}
 <table id="example1" class="table table-bordered" >
     <thead>
     <tr>

@@ -15,6 +15,24 @@ use Illuminate\Support\Facades\Validator;
 
 class PartIndex2 extends Component
 {
+    public $parts;
+    public $statusFilter = '1'; // Default to show parts with status 1
+
+    public function mount()
+    {
+        $this->fetchParts();
+    }
+
+    public function fetchParts()
+    {
+        $this->parts = Part::where('status_id', $this->statusFilter)->get();
+    }
+
+    public function updateStatus()
+    {
+        $this->fetchParts();
+    }
+
     public function render()
     {
         return view('livewire.part-index2');
