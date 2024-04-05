@@ -11,7 +11,7 @@ use App\Http\Controllers\InsuranceController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\StatusController;
 use App\Http\Livewire\PartLivewire;
-use App\Livewire\PartIndex2;
+use App\Livewire\PartIndex;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
@@ -27,7 +27,7 @@ use App\Http\Controllers\TestController;
 |
 */
 
-Route::get('/partindex2',[PartIndex2::class, 'index'])->name('part.index2');
+Route::get('/partindex',[PartIndex::class, 'index'])->name('part.index');
 
 Route::get('/', function () {
     return redirect('/part');

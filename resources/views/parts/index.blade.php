@@ -32,7 +32,7 @@
             <!-- /.card -->
             <div class="card">
               <!-- /.card-header -->
-              @livewire('PartIndex2')
+              @livewire('PartIndex')
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
