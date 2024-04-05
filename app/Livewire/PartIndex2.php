@@ -25,12 +25,7 @@ class PartIndex2 extends Component
 
     public function fetchParts()
     {
-        $this->parts = Part::where('status_id', $this->statusFilter)->get();
-    }
-
-    public function updateStatus()
-    {
-        $this->fetchParts();
+        $this->parts = Part::get()->all();
     }
 
     public function render()

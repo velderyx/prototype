@@ -9,7 +9,6 @@ class InsuranceFormModal extends Component
 {
     public $name;
     public $insurancesLive;
-    public $showModal = false; // Add a property to manage the modal state
 
     public function storeData()
     {
@@ -34,10 +33,10 @@ class InsuranceFormModal extends Component
         $this->dispatch('insurancesUpdate');
     }
 
-    public function closeModal(){
-        $this->dispatch('closeTheModal');
+    public function closeModal()
+    {
+        $this->dispatch('closeModal');
     }
-
 
     public function render()
     {

@@ -1,7 +1,7 @@
 
-<div class="card-body">
+<div class="card-body" >
     {{-- <label for="statusFilter">Filter by Status:</label>
-    <select wire:model="statusFilter" id="statusFilter" wire:change="updateStatus">
+    <select wire:model="statusFilter" id="statusFilter" wire:change="fetchParts">
         <option value="1">Status 1</option>
         <option value="2">Status 2</option>
     </select> --}}
