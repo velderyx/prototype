@@ -41,6 +41,7 @@ Route::post('/logout',[LoginController::class, 'logout']);
 Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('layout.main');
 
 route::get('/part', [PartController::class, 'index'])->name('part.index');
+route::get('/part-archive', [PartController::class, 'index2'])->name('part.index2');
 route::get('/part/create', [PartController::class, 'create'])->name('part.create');
 route::post('/part', [PartController::class, 'store'])->name('part.store');
 route::get('/part/{part}/edit', [PartController::class, 'edit'])->name('part.edit');

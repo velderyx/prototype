@@ -94,12 +94,29 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ url('part') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Part</p>
-                </a>
-              </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Part</p>
+                    <i class="right fas fa-angle-left"></i>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="{{ url('part') }}" class="nav-link">
+                        <i class="far fa-dot-circle nav-icon"></i>
+                        <p>Ada</p>
+                      </a>
+                    </li>
+                  </ul>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="{{ url('part-archive') }}" class="nav-link">
+                        <i class="far fa-dot-circle nav-icon"></i>
+                        <p>Diambil</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
             </ul>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
@@ -125,7 +142,7 @@
                     </li>
                   </ul>
                 </li>
-              </ul>
+            </ul>
           </li>
         </ul>
       </nav>

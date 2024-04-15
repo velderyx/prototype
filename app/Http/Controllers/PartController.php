@@ -19,6 +19,11 @@ class PartController extends Controller
         return view('parts.index', ['parts' => $parts]);
     }
 
+    public function index2(){
+        $parts = Part::all();
+        return view('parts.index2', ['parts' => $parts]);
+    }
+
     public function create(){
         $cars = Car::orderBy('name')->get();
         $suppliers = Supplier::orderBy('name')->get();
