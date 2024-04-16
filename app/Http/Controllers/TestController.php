@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Test;
+use Faker\Core\Number;
 
 class TestController extends Controller
 {
@@ -54,5 +55,28 @@ class TestController extends Controller
 
         $target = 13;
 
+    }
+
+    public $array = [22,25,35,67,99,44];
+
+    public 
+    function findCombination($array, $target){
+        $target =  104;
+        $result = [];
+        foreach($array as $number){
+            if ($target > array_sum($result)){
+                array_push($result, $number);
+            }
+            else{
+                continue;
+            }
+        }
+
+        if (array_sum($result) == $target){
+        echo "Combination found: " . implode(', ', $result);
+        }
+        else{
+        echo "No combination found with target " . implode(', ', $result);
+        }
     }
 }
