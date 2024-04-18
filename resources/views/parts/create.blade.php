@@ -18,7 +18,7 @@
                 @method('post')
                 <div class="card-body">
                     <div class="form-group">
-                        <label>tanggal</label>
+                        <label>Tanggal</label>
                         <input id="date"type="date" class="form-control" name="date" value="{{ old('date') }}" />
                     </div>
                     <div class="form-group">
@@ -39,13 +39,13 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>plat nomor</label>
-                        <input id="plate" type="text" class="form-control" name="plate" placeholder="plat nomor" value="{{ old('plate') }}" oninput="this.value = this.value.toUpperCase()"/>
+                        <label>Plat nomor</label>
+                        <input id="plate" type="text" class="form-control" name="plate" placeholder="B 9999 IPO" value="{{ old('plate') }}" oninput="this.value = this.value.toUpperCase()"/>
                     </div>
                     <div class="form-group" id="nameInputs">
                         <label>Nama</label>
                         <button type="button" onclick="addNameInput()">+</button>
-                        <input id="name1" type="text" class="form-control" id="name1" name="names[]" placeholder="nama part" value="{{ old('names1') }}" oninput="this.value = this.value.toUpperCase()"/>
+                        <input id="name1" type="text" class="form-control" id="name1" name="names[]" placeholder="Antena" value="{{ old('names1') }}" oninput="this.value = this.value.toUpperCase()"/>
                         <label>Lokasi</label>
                         <div class="d-flex">
                             <select id="location_id1" class="form-control" id="location_id1" name="location_ids[]">
