@@ -1,18 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Button Click Example</title>
-    <script>
-        // Define the JavaScript function with parameters
-        function showMessage(message) {
-            alert(message);
-        }
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
 </head>
 <body>
 
-<!-- HTML button with onclick attribute -->
-<button onclick="showMessage('Hello, world!')">Click Me</button>
+    <div>
+        @livewire('ToastNotification')
+    </div>
 
 </body>
 </html>
