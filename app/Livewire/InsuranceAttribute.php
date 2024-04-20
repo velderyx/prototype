@@ -23,14 +23,11 @@ class InsuranceAttribute extends Component
 
 
     public function updateInsurances(){
-        $this -> title = 'berubah title';
         $this->insurancesLive = $this->fetchInsurances();
     }
 
     public function fetchInsurances()
     {
-    // Your logic to fetch and return the updated insurance list
-    // For example:
         return Insurance::orderBy('name')->get();
     }
 
