@@ -1,5 +1,5 @@
 <div>
-    <button wire:click="showAlert" class="btn btn-primary">Show Alert</button>
+    {{-- <button wire:click="showAlert" class="btn btn-primary">Show Alert</button> --}}
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -12,8 +12,7 @@
             title: 'Berhasil disimpan',
             text: "",
             position: 'top-end',
-            showConfirmButton: false,
-            timerProgressBar: true
+            showConfirmButton: false
         });
     });
 </script>

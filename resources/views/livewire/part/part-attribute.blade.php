@@ -10,7 +10,8 @@
     <select id="car_id" class="form-control" name="car_id">
         @foreach ($carsLive as $car)
         <option value="{{ $car->id }}" {{ old('car_id') == $car->id ? 'selected' : '' }} {{ !old('car_id') ? $car->name == "Lainnya" ? 'selected' : ''  : ''}}>
-            {{ $car->name }}</option>
+            {{ $car->name }}
+        </option>
         @endforeach
     </select>
 @endif

@@ -5,6 +5,7 @@
         <option value="1">Status 1</option>
         <option value="2">Status 2</option>
     </select> --}}
+@livewire('ToastNotification')
 <table id="example1" class="table table-bordered" >
     <thead>
     <tr>

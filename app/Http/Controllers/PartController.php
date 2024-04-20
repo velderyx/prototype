@@ -9,6 +9,8 @@ use App\Models\Insurance;
 use App\Models\Supplier;
 use App\Models\Status;
 use App\Models\Location;
+use Livewire\Livewire;
+use App\Livewire\ToastNotification;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Validator;
 
@@ -34,6 +36,11 @@ class PartController extends Controller
 
         $test = session('test');
         return view('parts.create', ['test' => $test,'cars' => $cars, 'suppliers' => $suppliers, 'insurances' => $insurances, 'statuses' => $statuses, 'locations' => $locations, 'attribute' => 'qqqq']);
+    }
+
+    public function sendAlert(string $type, string $message): void //alert for berhasil disimpan
+    {
+        session()->push('alerts', ['type' => $type, 'message' => $message]);
     }
 
     public function store(Request $request){
@@ -77,6 +84,8 @@ class PartController extends Controller
                 return redirect()->back()->with('error', 'Failed to save data.');
             }
         }
+
+        $this->sendAlert('success', 'message');
 
         return redirect(route('part.index'));
 
