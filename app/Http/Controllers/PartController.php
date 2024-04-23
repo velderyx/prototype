@@ -113,9 +113,30 @@ class PartController extends Controller
             'description' => 'nullable'
         ]);
 
+        // Retrieve the original part from the database
+        $partFromDatabase = Part::find($part->id);
+
+        // Update the part with the new data
         $part->update($data);
 
-        return redirect(route('part.index'))->with('success', 'Part Updated Succesfully');
+        // Initialize an empty array to store the differences
+        $differences = [];
+
+        // Compare the attributes of $part and $partFromDatabase
+        foreach ($data as $key => $value) {
+            if ($part->$key != $partFromDatabase->$key) {
+                // If the attribute values are different, store the difference
+                $differences[$key] = [
+                    'old' => $partFromDatabase->$key,
+                    'new' => $value
+                ];
+            }
+        }
+
+        $differencesString = json_encode($differences);
+
+        // Redirect the user to the index route for parts with success message
+        return redirect(route('part.index'))->with('success', $differencesString);
     }
 
     public function destroy(Part $part){

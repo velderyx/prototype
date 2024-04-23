@@ -11,6 +11,14 @@
                     <span>Tambah Part baru</span>
                 </a>
             </h1>
+             <div>
+                    @if(session()->has('success'))
+                        <div>
+                            for testing only
+                            {{ session('success') }}
+                        </div>
+                    @endif
+                </div>
 
           </div>
         </div>
