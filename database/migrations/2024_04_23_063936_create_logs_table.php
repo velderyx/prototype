@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('logs', function (Blueprint $table) {
             $table->id();
+            $table->date('date');
+            $table->foreignId('part_id')->constrained();
             $table->text('old');
             $table->text('new');
             $table->timestamps();

@@ -9,6 +9,7 @@ use App\Models\Insurance;
 use App\Models\Supplier;
 use App\Models\Status;
 use App\Models\Location;
+use App\Models\Log;
 use Livewire\Livewire;
 use App\Livewire\ToastNotification;
 use Illuminate\Database\Eloquent\Builder;
@@ -19,6 +20,11 @@ class PartController extends Controller
     public function index(){
         $parts = Part::all();
         return view('parts.index', ['parts' => $parts]);
+    }
+
+    public function logs(){
+        $logs = Log::all();
+        return view('parts.logs', ['logs' => $logs]);
     }
 
     public function index2(){
@@ -116,27 +122,51 @@ class PartController extends Controller
         // Retrieve the original part from the database
         $partFromDatabase = Part::find($part->id);
 
+        // get current date
+        $currentDate = date('Y-m-d');
+
+        $statusOld = '';
+        switch ($partFromDatabase->status_id) {
+            case "1":
+                $statusOld = 'ada';
+                break;
+            case "2":
+                $statusOld = "diambil";
+                break;
+            default:
+                echo "";
+        }
+        $statusNew = '';
+        $status_id = $request->input('status_id');
+
+        if ($status_id != $partFromDatabase->status_id) {
+            switch ($status_id) {
+                case "1":
+                    $statusNew = 'ada';
+                    break;
+                case "2":
+                    $statusNew = "diambil";
+                    break;
+                default:
+                    echo "";
+            }
+
+            Log::create([
+                'date' => $currentDate,
+                'part_id' => $part->id,
+                'old' => $statusOld,
+                'new' => $statusNew
+
+            ]);
+
+        }
+
         // Update the part with the new data
         $part->update($data);
 
-        // Initialize an empty array to store the differences
-        $differences = [];
-
-        // Compare the attributes of $part and $partFromDatabase
-        foreach ($data as $key => $value) {
-            if ($part->$key != $partFromDatabase->$key) {
-                // If the attribute values are different, store the difference
-                $differences[$key] = [
-                    'old' => $partFromDatabase->$key,
-                    'new' => $value
-                ];
-            }
-        }
-
-        $differencesString = json_encode($differences);
 
         // Redirect the user to the index route for parts with success message
-        return redirect(route('part.index'))->with('success', $differencesString);
+        return redirect(route('part.index'));
     }
 
     public function destroy(Part $part){
