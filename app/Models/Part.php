@@ -19,6 +19,7 @@ class Part extends Model
         'insurance_id',
         'status_id',
         'date',
+        'date_out',
         'description'
     ];
 

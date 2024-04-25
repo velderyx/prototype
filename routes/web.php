@@ -48,6 +48,7 @@ route::post('/part', [PartController::class, 'store'])->name('part.store');
 route::get('/part/{part}/edit', [PartController::class, 'edit'])->name('part.edit');
 route::put('/part/{part}/update', [PartController::class, 'update'])->name('part.update');
 route::get('/part/{part}/destroy', [PartController::class, 'destroy'])->name('part.destroy');
+route::get('/part/{part}/change-status', [PartController::class, 'changeStatus'])->name('part.change-status');
 
 
 route::get('/item', [ItemController::class, 'index'])->name('item.index');

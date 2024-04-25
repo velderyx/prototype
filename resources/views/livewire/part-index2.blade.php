@@ -9,7 +9,8 @@
     <thead>
     <tr>
     <th>No.</th>
-    <th>Tgl</th>
+    <th>Tgl Masuk</th>
+    <th>Tgl Keluar</th>
     <th>Plat Nomor</th>
     <th>Nama</th>
     <th>Mobil</th>
@@ -30,6 +31,7 @@
     <tr>
         <td>{{ $rowNumber-- }}</td>
         <td>{{ date('d/m/Y', strtotime($part->date)) }}</td>
+        <td>{{ date('d/m/Y', strtotime($part->date_out)) }}</td>
         <td>{{ $part->plate }}</td>
         <td>{{ $part->name }}</td>
         <td>{{ $part->car->name }}</td>
@@ -40,7 +42,6 @@
         <td>{{ $part->description }}</td>
         <td>
             <div class="btn-group">
-            <button type="button" class="btn btn-success">Opsi</button>
             <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
                 <span class="sr-only">Toggle Dropdown</span>
             </button>
@@ -53,20 +54,5 @@
     </tr>
     @endforeach
     </tbody>
-    <tfoot>
-    <tr>
-        <th>No.</th>
-        <th>Tgl</th>
-        <th>Plat Nomor</th>
-        <th>Nama</th>
-        <th>Mobil</th>
-        <th>Supplier</th>
-        <th>Asuransi</th>
-        <th>Status</th>
-        <th>Lokasi</th>
-        <th>Keterangan</th>
-        <th>--</th>
-    </tr>
-    </tfoot>
 </table>
 </div>

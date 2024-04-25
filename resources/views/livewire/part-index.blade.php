@@ -41,7 +41,7 @@
         <td>{{ $part->description }}</td>
         <td>
             <div class="btn-group">
-            <button type="button" class="btn btn-success">Opsi</button>
+            <a href="{{ route('part.change-status', ['part' => $part]) }}" class="btn btn-success">Ambil</a>
             <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
                 <span class="sr-only">Toggle Dropdown</span>
             </button>

@@ -76,6 +76,10 @@
                     </div>
                     @endforeach
                  </div>
+                 <div class="form-group">
+                    <label>Tanggal Keluar</label>
+                    <input type="date" class="form-control" name="date_out" value="{{ date('Y-m-d') }}"/>
+                 </div>
                </div>
                <!-- /.card-body -->
 

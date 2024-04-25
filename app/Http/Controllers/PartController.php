@@ -59,6 +59,7 @@ class PartController extends Controller
             'status_id' => 'required',
             'location_ids.*' => 'required',
             'date'=> 'required',
+            'date_out' => 'nullable',
             'description' => 'nullable'
         ]);
 
@@ -82,6 +83,7 @@ class PartController extends Controller
                 'status_id' => $status_id,
                 'location_id' => $location_id,
                 'date' => $date,
+                'date_out' => null,
                 'description' => $description,
             ]);
 
@@ -116,6 +118,7 @@ class PartController extends Controller
             'status_id' => 'required',
             'location_id' => 'required',
             'date'=> 'required',
+            'date_out'=> 'required',
             'description' => 'nullable'
         ]);
 
@@ -156,21 +159,44 @@ class PartController extends Controller
                 'part_id' => $part->id,
                 'old' => $statusOld,
                 'new' => $statusNew
-
             ]);
-
         }
 
         // Update the part with the new data
         $part->update($data);
 
-
         // Redirect the user to the index route for parts with success message
         return redirect(route('part.index'));
     }
 
+    public function changeStatus(Part $part){
+
+        $currentDate = date('Y-m-d');
+        $part->update([
+            'status_id' => 2,
+            'date' => $currentDate,
+        ]);
+        return redirect(route('part.index'))->with('success', 'edited');
+    }
+
+    public function changeStatusDestroy(Part $part){
+
+        $currentDate = date('Y-m-d');
+        $part->update([
+            'status_id' => 3,
+            'date' => $currentDate,
+        ]);
+        return redirect(route('part.index'))->with('success', 'taken');
+    }
+
     public function destroy(Part $part){
-        $part->delete();
-        return redirect(route('part.index'))->with('success', 'Part Deleted Succesfully');
+        // $part->delete(); this is for delete from database
+        $currentDate = date('Y-m-d');
+        $part->update([
+            'status_id' => 3,
+            'date' => $currentDate,
+        ]);
+        return redirect(route('part.index'))->with('success', 'deleted');
+        // return redirect(route('part.index'))->with('success', 'Part Deleted Succesfully');
     }
 }

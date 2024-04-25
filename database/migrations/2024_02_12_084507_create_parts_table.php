@@ -21,6 +21,7 @@ return new class extends Migration
             $table->foreignId('insurance_id')->constrained();
             $table->foreignId('status_id')->constrained();
             $table->date('date');
+            $table->date('date_out');
             $table->text('description')->nullable();
             $table->timestamps();
         });

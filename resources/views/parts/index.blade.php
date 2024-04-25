@@ -14,7 +14,6 @@
              <div>
                     @if(session()->has('success'))
                         <div>
-                            for testing only
                             {{ session('success') }}
                         </div>
                     @endif
