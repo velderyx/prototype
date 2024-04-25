@@ -17,8 +17,8 @@ class StatusSeeder extends Seeder
     public function run(): void
     {
         $statusNames = [
-            "ada",
-            "diambil",
+            "In stock",
+            "Out",
             ""
         ];
 

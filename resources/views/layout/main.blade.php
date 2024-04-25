@@ -104,7 +104,7 @@
                     <li class="nav-item">
                       <a href="{{ url('part') }}" class="nav-link">
                         <i class="far fa-dot-circle nav-icon"></i>
-                        <p>Ada</p>
+                        <p>In Stock</p>
                       </a>
                     </li>
                   </ul>
@@ -112,7 +112,7 @@
                     <li class="nav-item">
                       <a href="{{ url('part-archive') }}" class="nav-link">
                         <i class="far fa-dot-circle nav-icon"></i>
-                        <p>Diambil</p>
+                        <p>Out</p>
                       </a>
                     </li>
                   </ul>

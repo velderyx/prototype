@@ -10,7 +10,7 @@
     <thead>
     <tr>
     <th>No.</th>
-    <th>Tgl</th>
+    <th>Tanggal</th>
     <th>Plat Nomor</th>
     <th>Nama</th>
     <th>Mobil</th>
@@ -57,7 +57,7 @@
     <tfoot>
     <tr>
         <th>No.</th>
-        <th>Tgl</th>
+        <th>Tanggal</th>
         <th>Plat Nomor</th>
         <th>Nama</th>
         <th>Mobil</th>
