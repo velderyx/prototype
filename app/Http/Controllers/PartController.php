@@ -28,7 +28,7 @@ class PartController extends Controller
     }
 
     public function logs(){
-        $logs = Log::where('old', '!=', 'new')->whereIn('new', ['1', '2'])->get();
+        $logs = Log::where('old', '!=', 'new')->whereIn('new', ['2'])->get();
         return view('parts.logs', ['logs' => $logs]);
     }
 

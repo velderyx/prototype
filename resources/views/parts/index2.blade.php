@@ -5,9 +5,17 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Data Part Archive
+            <h1>Data Part Keluar
             </h1>
-
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item">
+                <a href="{{ route('part.logs') }}" style="display: flex; align-items: center; text-decoration: none;">
+                    <ion-icon name="reader" style="font-size: 24px; margin-right: 0px;"></ion-icon>
+                    <span style="font-size: 18px;">Logs</span>
+                </a>
+            </ol>
           </div>
         </div>
       </div><!-- /.container-fluid -->

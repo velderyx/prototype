@@ -16,10 +16,9 @@
                 <thead>
                 <tr>
                 <th>No.</th>
-                <th>Tanggal</th>
+                <th>Tanggal Keluar</th>
                 <th>Plat</th>
                 <th>Part</th>
-                <th>Status</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -33,7 +32,6 @@
                     <td>{{ $log->date }}</td>
                     <td>{{ $log->part->plate }}</td>
                     <td>{{ $log->part->name }}</td>
-                    <td>{{ $log->newStatus->name }}</td>
                 </tr>
                 @endforeach
                 </tbody>
