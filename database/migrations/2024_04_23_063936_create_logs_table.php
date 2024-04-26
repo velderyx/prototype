@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->date('date');
             $table->foreignId('part_id')->constrained();
-            $table->text('old');
-            $table->text('new');
+            $table->foreignId('old')->references('id')->on('statuses');
+            $table->foreignId('new')->references('id')->on('statuses');
             $table->timestamps();
         });
     }

@@ -23,4 +23,14 @@ class Log extends Model
     {
         return $this->belongsTo(Part::class);
     }
+
+    public function newStatus(): BelongsTo
+    {
+    return $this->belongsTo(Status::class, 'new');
+    }
+
+    public function oldStatus(): BelongsTo
+    {
+        return $this->belongsTo(Status::class, 'old');
+    }
 }

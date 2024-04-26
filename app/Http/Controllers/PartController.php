@@ -22,14 +22,14 @@ class PartController extends Controller
         return view('parts.index', ['parts' => $parts]);
     }
 
-    public function logs(){
-        $logs = Log::all();
-        return view('parts.logs', ['logs' => $logs]);
-    }
-
     public function index2(){
         $parts = Part::all();
         return view('parts.index2', ['parts' => $parts]);
+    }
+
+    public function logs(){
+        $logs = Log::where('old', '!=', 'new')->whereIn('new', ['1', '2'])->get();
+        return view('parts.logs', ['logs' => $logs]);
     }
 
     public function create(){
@@ -128,39 +128,14 @@ class PartController extends Controller
         // get current date
         $currentDate = date('Y-m-d');
 
-        $statusOld = '';
-        switch ($partFromDatabase->status_id) {
-            case "1":
-                $statusOld = 'ada';
-                break;
-            case "2":
-                $statusOld = "diambil";
-                break;
-            default:
-                echo "";
-        }
-        $statusNew = '';
-        $status_id = $request->input('status_id');
-
-        if ($status_id != $partFromDatabase->status_id) {
-            switch ($status_id) {
-                case "1":
-                    $statusNew = 'ada';
-                    break;
-                case "2":
-                    $statusNew = "diambil";
-                    break;
-                default:
-                    echo "";
-            }
-
+        $statusOld = $partFromDatabase->status_id;
+        $statusNew = $request->input('status_id');
             Log::create([
                 'date' => $currentDate,
                 'part_id' => $part->id,
                 'old' => $statusOld,
                 'new' => $statusNew
             ]);
-        }
 
         // Update the part with the new data
         $part->update($data);
@@ -174,19 +149,17 @@ class PartController extends Controller
         $currentDate = date('Y-m-d');
         $part->update([
             'status_id' => 2,
-            'date' => $currentDate,
+            'date_out' => $currentDate,
         ]);
+
+        Log::create([
+            'date' => $currentDate,
+            'part_id' => $part->id,
+            'old' => '1',
+            'new' => '2'
+        ]);
+
         return redirect(route('part.index'))->with('success', 'edited');
-    }
-
-    public function changeStatusDestroy(Part $part){
-
-        $currentDate = date('Y-m-d');
-        $part->update([
-            'status_id' => 3,
-            'date' => $currentDate,
-        ]);
-        return redirect(route('part.index'))->with('success', 'taken');
     }
 
     public function destroy(Part $part){
@@ -194,8 +167,16 @@ class PartController extends Controller
         $currentDate = date('Y-m-d');
         $part->update([
             'status_id' => 3,
-            'date' => $currentDate,
+            'date_out' => $currentDate,
         ]);
+
+        Log::create([
+            'date' => $currentDate,
+            'part_id' => $part->id,
+            'old' => '2',
+            'new' => '3'
+        ]);
+
         return redirect(route('part.index'))->with('success', 'deleted');
         // return redirect(route('part.index'))->with('success', 'Part Deleted Succesfully');
     }

@@ -2,27 +2,6 @@
 @section('title', 'Data Part')
 @section('content')
     <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Data Part
-                <a href="{{ route('part.create') }}" class="btn btn-success">
-                    <i class="fas fa-plus"></i>
-                    <span>Tambah Part baru</span>
-                </a>
-            </h1>
-             <div>
-                    @if(session()->has('success'))
-                        <div>
-                            for testing only
-                            {{ session('success') }}
-                        </div>
-                    @endif
-                </div>
-
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
     </section>
 
     <!-- Main content -->
@@ -37,10 +16,10 @@
                 <thead>
                 <tr>
                 <th>No.</th>
-                <th>date</th>
+                <th>Tanggal</th>
+                <th>Plat</th>
                 <th>Part</th>
-                <th>Old</th>
-                <th>New</th>
+                <th>Status</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -52,20 +31,12 @@
                 <tr>
                     <td>{{ $rowNumber-- }}</td>
                     <td>{{ $log->date }}</td>
+                    <td>{{ $log->part->plate }}</td>
                     <td>{{ $log->part->name }}</td>
-                    <td>{{ $log->old }}</td>
-                    <td>{{ $log->new }}</td>
+                    <td>{{ $log->newStatus->name }}</td>
                 </tr>
                 @endforeach
                 </tbody>
-                <tfoot>
-                <tr>
-                    <th>No.</th>
-                    <th>Part</th>
-                    <th>Old</th>
-                    <th>New</th>
-                </tr>
-                </tfoot>
             </table>
               <!-- /.card-body -->
             </div>
