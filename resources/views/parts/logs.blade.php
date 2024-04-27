@@ -1,8 +1,18 @@
 @extends('layout.main')
 @section('title', 'Data Part')
 @section('content')
-    <section class="content-header">
-    </section>
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Logs History
+        </h1>
+
+      </div>
+
+    </div>
+  </div><!-- /.container-fluid -->
+</section>
 
     <!-- Main content -->
     <section class="content">
@@ -29,7 +39,7 @@
                 @foreach($logs as $log)
                 <tr>
                     <td>{{ $rowNumber-- }}</td>
-                    <td>{{ $log->date }}</td>
+                    <td>{{ date('d/m/Y', strtotime($log->date)) }}</td>
                     <td>{{ $log->part->plate }}</td>
                     <td>{{ $log->part->name }}</td>
                 </tr>
