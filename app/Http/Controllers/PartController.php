@@ -125,6 +125,10 @@ class PartController extends Controller
             'description' => 'nullable'
         ]);
 
+
+        // Update the part with the new data
+        $part->update($data);
+
         // Retrieve the original part from the database
         $partFromDatabase = Part::find($part->id);
 
@@ -144,8 +148,6 @@ class PartController extends Controller
             ]);
         }
         else
-        // Update the part with the new data
-        $part->update($data);
 
         // Redirect the user to the index route for parts with success message
         return redirect(route('part.index'));
