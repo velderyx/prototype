@@ -133,14 +133,6 @@
                       </a>
                     </li>
                   </ul>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="#" class="nav-link">
-                        <i class="far fa-dot-circle nav-icon"></i>
-                        <p>Bahan (soon...)</p>
-                      </a>
-                    </li>
-                  </ul>
                 </li>
             </ul>
           </li>
