@@ -112,7 +112,7 @@
                     <li class="nav-item">
                       <a href="{{ url('part-archive') }}" class="nav-link">
                         <i class="far fa-dot-circle nav-icon"></i>
-                        <p>Out</p>
+                        <p>Archive</p>
                       </a>
                     </li>
                   </ul>
