@@ -64,8 +64,8 @@
         </div> --}}
 
         <div class="info">
-            <a href="#" class="d-block">Liefs User</a>
-          </div>
+          <a href="#" class="d-block">Liefs User</a>
+        </div>
       </div>
 
       <!-- SidebarSearch Form -->

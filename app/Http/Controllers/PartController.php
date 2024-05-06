@@ -29,9 +29,9 @@ class PartController extends Controller
 
     public function logs(){
         $logs = Log::where('old', '!=', 'new')
-        ->whereIn('new', ['2'])
-        ->orderBy('date', 'asc') // or 'desc' for descending order
-        ->get();
+                    ->whereIn('new', ['2'])
+                    ->orderBy('date', 'asc') // or 'desc' for descending order
+                    ->get();
         return view('parts.logs', ['logs' => $logs]);
     }
 
@@ -139,7 +139,6 @@ class PartController extends Controller
         $statusNew = $request->input('status_id');
         $status_id = $request->input('status_id');
         if ($status_id != $partFromDatabase->status_id) {
-
             Log::create([
                 'date' => $currentDate,
                 'part_id' => $part->id,
