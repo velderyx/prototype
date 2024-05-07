@@ -1,4 +1,3 @@
-
 <div class="card-body" >
     {{-- <label for="statusFilter">Filter by Status:</label>
     <select wire:model="statusFilter" id="statusFilter" wire:change="fetchParts">
