@@ -9,9 +9,9 @@
     <thead>
     <tr>
     <th>No.</th>
-    <th>Tanggal</th>
     <th>Plat Nomor</th>
     <th>Nama</th>
+    <th>Tanggal</th>
     <th>Mobil</th>
     <th>Supplier</th>
     <th>Asuransi</th>
@@ -29,9 +29,9 @@
     @foreach($parts as $part)
     <tr>
         <td>{{ $rowNumber-- }}</td>
-        <td>{{ date('d/m/Y', strtotime($part->date)) }}</td>
         <td>{{ $part->plate }}</td>
         <td>{{ $part->name }}</td>
+        <td>{{ date('d/m/Y', strtotime($part->date)) }}</td>
         <td>{{ $part->car->name }}</td>
         <td>{{ $part->supplier->name }}</td>
         <td>{{ $part->insurance->name }}</td>
@@ -56,9 +56,9 @@
     <tfoot>
     <tr>
         <th>No.</th>
-        <th>Tanggal</th>
         <th>Plat Nomor</th>
         <th>Nama</th>
+        <th>Tanggal</th>
         <th>Mobil</th>
         <th>Supplier</th>
         <th>Asuransi</th>
