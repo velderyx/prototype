@@ -125,7 +125,6 @@ class PartController extends Controller
             'description' => 'nullable'
         ]);
 
-
         // Update the part with the new data
         $part->update($data);
 
