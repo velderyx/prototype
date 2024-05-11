@@ -1,0 +1,3 @@
+list objecttive:
+fix saat item sudah diambil tapi barang ingin diinput tidak muncul di log,
+multi ambil
