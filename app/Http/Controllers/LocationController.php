@@ -23,7 +23,6 @@ class LocationController extends Controller
             }
         }
 
-
         // $car_id = $request->input('car_id');
         // $plate = $request->input('plate');
         // $supplier_id = $request->input('supplier_id');
