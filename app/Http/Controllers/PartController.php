@@ -90,6 +90,17 @@ class PartController extends Controller
                 'description' => $description,
             ]);
 
+            $maxId = Part::max('id');
+            $currentDate = date('Y-m-d');
+            if($status_id == 2){
+                Log::create([
+                    'date' => $currentDate,
+                    'part_id' => $maxId,
+                    'old' => 1,
+                    'new' => 2
+                ]);
+            }
+
             if (!$created) {
                 // Log or handle the error
                 return redirect()->back()->with('error', 'Failed to save data.');
