@@ -41,8 +41,6 @@ class PartController extends Controller
         $insurances = Insurance::orderBy('name')->get();
         $statuses = Status::orderBy('name')->get();
         $locations = Location::orderBy('name')->get();
-
-
         $test = session('test');
         return view('parts.create', ['test' => $test,'cars' => $cars, 'suppliers' => $suppliers, 'insurances' => $insurances, 'statuses' => $statuses, 'locations' => $locations, 'attribute' => 'qqqq']);
     }
@@ -110,7 +108,6 @@ class PartController extends Controller
         $this->sendAlert('success', 'message');
 
         return redirect(route('part.index'));
-
     }
 
     public function edit(Part $part){
