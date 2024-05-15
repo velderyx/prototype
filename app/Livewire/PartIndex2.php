@@ -16,7 +16,7 @@ class PartIndex2 extends Component
     public function fetchParts()
     {
         $this->parts = Part::where('status_id', '2')
-                   ->orderBy('date_out')
+                   ->orderBy('date')
                    ->get();
     }
 

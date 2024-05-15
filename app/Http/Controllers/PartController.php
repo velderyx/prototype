@@ -18,13 +18,11 @@ use Illuminate\Support\Facades\Validator;
 class PartController extends Controller
 {
     public function index(){
-        $parts = Part::all();
-        return view('parts.index', ['parts' => $parts]);
+        return view('parts.index');
     }
 
     public function index2(){
-        $parts = Part::all();
-        return view('parts.index2', ['parts' => $parts]);
+        return view('parts.index2');
     }
 
     public function logs(){
@@ -157,6 +155,34 @@ class PartController extends Controller
 
         // Redirect the user to the index route for parts with success message
         return redirect(route('part.index'));
+    }
+
+    public function bulkChangeStatus(Request $request)
+    {
+        // Validate the input
+        $request->validate([
+            'status_id' => 'required|array',
+            'status_id.*' => 'in:1,2',
+        ]);
+
+        foreach ($request->status_id as $part_id => $status_id) {
+            $part = Part::findOrFail($part_id);
+            $part->status_id = $status_id;
+            $part->save();
+
+            $currentDate = date('Y-m-d');
+            if($status_id == 2){
+                Log::create([
+                    'date' => $currentDate,
+                    'part_id' => $part_id,
+                    'old' => 1,
+                    'new' => 2
+                ]);
+            }
+
+        }
+
+        return redirect()->back()->with('success', 'Statuses updated successfully');
     }
 
     public function changeStatus(Part $part){

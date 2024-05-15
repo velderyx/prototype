@@ -49,6 +49,7 @@ route::get('/part/{part}/edit', [PartController::class, 'edit'])->name('part.edi
 route::put('/part/{part}/update', [PartController::class, 'update'])->name('part.update');
 route::get('/part/{part}/destroy', [PartController::class, 'destroy'])->name('part.destroy');
 route::get('/part/{part}/change-status', [PartController::class, 'changeStatus'])->name('part.change-status');
+Route::patch('/parts/bulk-change-status', [PartController::class, 'bulkChangeStatus'])->name('part.bulk-change-status');
 
 
 route::get('/item', [ItemController::class, 'index'])->name('item.index');
