@@ -1,4 +1,4 @@
 list objecttive:
 1. fix saat item sudah diambil tapi barang ingin diinput tidak muncul di log, done.
-2. multi ambil,
+2. multi ambil, done.
 3. make backup

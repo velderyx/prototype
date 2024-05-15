@@ -85,8 +85,7 @@
     </table>
 
     <div class="form-group">
-        <button type="submit" class="btn btn-primary">Update Status</button>
+        <button type="submit" class="btn btn-primary" onclick="return confirm('Konfirmasi update part')">Update Status</button>
     </div>
 </form>
-
 </div>
