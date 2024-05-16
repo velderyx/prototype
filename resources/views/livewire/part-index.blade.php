@@ -1,4 +1,4 @@
-<div class="card-body" >
+<div class="card-body">
     {{-- <label for="statusFilter">Testing Filter by Status:</label>
     <select wire:model="statusFilter" id="statusFilter" wire:change="fetchParts">
         <option value="1">Status 1</option>
