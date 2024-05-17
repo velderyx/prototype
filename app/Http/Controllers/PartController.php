@@ -170,6 +170,7 @@ class PartController extends Controller
             $part->status_id = $status_id;
             $part->save();
 
+            //save to log
             $currentDate = date('Y-m-d');
             if($status_id == 2){
                 Log::create([
