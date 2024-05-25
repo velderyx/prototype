@@ -157,6 +157,7 @@ class PartController extends Controller
         return redirect(route('part.index'));
     }
 
+
     public function bulkChangeStatus(Request $request)
     {
         // Validate the input
@@ -165,13 +166,14 @@ class PartController extends Controller
             'status_id.*' => 'in:1,2',
         ]);
 
+        $currentDate = date('Y-m-d');
         foreach ($request->status_id as $part_id => $status_id) {
             $part = Part::findOrFail($part_id);
             $part->status_id = $status_id;
+            $part->date_out = $currentDate;
             $part->save();
 
             //save to log
-            $currentDate = date('Y-m-d');
             if($status_id == 2){
                 Log::create([
                     'date' => $currentDate,
