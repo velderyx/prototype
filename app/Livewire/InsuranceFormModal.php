@@ -27,6 +27,8 @@ class InsuranceFormModal extends Component
 
         $this->updateInsurance();
 
+        $this->dispatch('showAlertSignal');
+
     }
 
     public function updateInsurance(){

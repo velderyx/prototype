@@ -1,6 +1,7 @@
 @extends('layout.main')
 @section('title', 'Data Part')
 @section('content')
+@livewire('ToastNotification')
    <section class="content">
      <div class="container-fluid">
        <div class="row">
