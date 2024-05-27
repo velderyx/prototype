@@ -2,4 +2,5 @@ list objecttive:
 1. fix saat item sudah diambil tapi barang ingin diinput tidak muncul di log, done.
 2. multi ambil, done.
 3. make backup, done.
-4. fix add car model using modal without refresh.
+4. make toast notification for save modal. done
+5. fix add car model using modal without refresh.
