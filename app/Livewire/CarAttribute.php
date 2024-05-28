@@ -7,7 +7,7 @@ use App\Models\Car;
 
 class CarAttribute extends Component
 {
-    public $title = 'Asuransi';
+    public $title = 'Mobil';
     public $carsLive;
 
     public function mount(){

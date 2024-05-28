@@ -1,5 +1,5 @@
 <div>
-    <div class="modal fade" id="CarModal" tabindex="-1" aria-labelledby="CarModalLabel" aria-hidden="true" wire:ignore.self>
+    <div class="modal fade" id="carModal" tabindex="-1" aria-labelledby="carModalLabel" aria-hidden="true" wire:ignore.self>
         <div class="modal-dialog">
             <div class="modal-content">
                 <form wire:submit.prevent="storeData">
