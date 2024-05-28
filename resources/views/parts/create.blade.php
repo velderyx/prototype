@@ -32,13 +32,11 @@
                     {{-- insurance attirbute --}}
                     @livewire('insuranceAttribute')
                     {{-- end insurance attirbute --}}
-                    <div class="form-group">
-                        <label>Mobil</label>
-                        <div class="d-flex">
-                            @livewire('partAttribute', ['section' => 'cars'])
-                            <button type="button" data-toggle="modal" data-target="#carModal">+</button>
-                        </div>
-                    </div>
+
+                    {{-- insurance attirbute --}}
+                    @livewire('CarAttribute')
+                    {{-- end insurance attirbute --}}
+
                     <div class="form-group">
                         <label>Plat nomor</label>
                         <input id="plate" type="text" class="form-control" name="plate" placeholder="B 9999 IPO" value="{{ old('plate') }}" oninput="this.value = this.value.toUpperCase()"/>
@@ -118,33 +116,7 @@
        </div>
 
        {{-- car modal --}}
-       <div class="modal fade" id="carModal" tabindex="-1" aria-labelledby="carModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form action="{{ route('car.store') }}" method="POST">
-                    @csrf <!-- Add CSRF token -->
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="newItemModalLabel"> Tambah Nama jenis Mobil</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- Input fields for your form -->
-                        <div class="form-group">
-                            <label>Nama </label>
-                            <input type="text" placeholder="contoh: Toyota Avanza" class="form-control" id="name1" name="names[]">
-                        </div>
-                        <!-- Add more input fields as needed -->
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-       </div>
+       @livewire('CarFormModal')
 
        {{-- supplier modal --}}
        <div class="modal fade" id="supplierModal" tabindex="-1" aria-labelledby="supplierModalLabel" aria-hidden="true">
