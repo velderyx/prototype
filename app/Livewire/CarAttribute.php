@@ -8,17 +8,17 @@ use App\Models\Car;
 class CarAttribute extends Component
 {
     public $title = 'Asuransi';
-    public $CarsLive;
+    public $carsLive;
 
     public function mount(){
-        $this->CarsLive = Car::orderBy('name')->get();
+        $this->carsLive = Car::orderBy('name')->get();
     }
 
-    protected $listeners = ['CarsUpdate' => 'updateCars'];
+    protected $listeners = ['carsUpdate' => 'updateCars'];
 
 
     public function updateCars(){
-        $this->CarsLive = $this->fetchCars();
+        $this->carsLive = $this->fetchCars();
     }
 
     public function fetchCars()
@@ -30,6 +30,6 @@ class CarAttribute extends Component
 
     public function render()
     {
-        return view('livewire.Car-attribute');
+        return view('livewire.car-attribute');
     }
 }

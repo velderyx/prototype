@@ -1,12 +1,12 @@
 <div class="form-group">
     <label>Mobil</label>
-    {{-- <button wire:click.prevent="updateCars">+</button> --}}
+    {{-- <button wire:click.prevent="updatecars">+</button> --}}
     <div class="d-flex">
-        <select id="Car_id" class="form-control" name="Car_id">
-            @foreach ($CarsLive as $Car)
-            <option value="{{ $Car->id }}" {{ old('Car_id') == $Car->id ? 'selected' : '' }} {{ !old('Car_id') ? $Car->name == "lainnya" ? 'selected' : ''  : ''}}>{{ $Car->name }}</option>
+        <select id="car_id" class="form-control" name="car_id">
+            @foreach ($carsLive as $car)
+            <option value="{{ $car->id }}" {{ old('car_id') == $car->id ? 'selected' : '' }} {{ !old('car_id') ? $car->name == "lainnya" ? 'selected' : ''  : ''}}>{{ $car->name }}</option>
             @endforeach
         </select>
-        <button type="button" data-toggle="modal" data-target="#CarModal">+</button>
+        <button type="button" data-toggle="modal" data-target="#carModal">+</button>
     </div>
 </div>

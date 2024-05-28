@@ -12,7 +12,7 @@ use App\Models\Location;
 
 class InsuranceAttribute extends Component
 {
-    public $title = 'Asuransi';
+    public $title = 'Mobil';
     public $insurancesLive;
 
     public function mount(){

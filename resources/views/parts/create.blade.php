@@ -87,6 +87,9 @@
        {{-- insurance modal --}}
         @livewire('insuranceFormModal')
 
+        {{-- car modal --}}
+        @livewire('CarFormModal')
+
 
        {{-- status modal  --}}
        <div class="modal fade" id="statusModal" tabindex="-1" aria-labelledby="statusModalModalLabel" aria-hidden="true">
@@ -115,8 +118,6 @@
         </div>
        </div>
 
-       {{-- car modal --}}
-       @livewire('CarFormModal')
 
        {{-- supplier modal --}}
        <div class="modal fade" id="supplierModal" tabindex="-1" aria-labelledby="supplierModalLabel" aria-hidden="true">
