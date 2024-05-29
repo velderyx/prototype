@@ -32,7 +32,7 @@ class CarFormModal extends Component
     }
 
     public function updateCar(){
-        $this->dispatch('CarsUpdate');
+        $this->dispatch('carsUpdate');
     }
 
     public function closeModal()
@@ -42,7 +42,7 @@ class CarFormModal extends Component
 
     public function render()
     {
-        return view('livewire.Car-form-modal');
+        return view('livewire.car-form-modal');
     }
 
 }

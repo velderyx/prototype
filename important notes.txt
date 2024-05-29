@@ -1,0 +1,1 @@
+1. L dan l capital di kata "lainnya" suka bikin bug
