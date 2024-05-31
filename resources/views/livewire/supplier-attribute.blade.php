@@ -2,7 +2,7 @@
     <label>Supplier</label>
     {{-- <button wire:click.prevent="updatesupplierss">+</button> --}}
     <div class="d-flex">
-        <select id="suppliers_id" class="form-control" name="suppliers_id">
+        <select id="supplier_id" class="form-control" name="supplier_id">
             @foreach ($suppliersLive as $suppliers)
             <option value="{{ $suppliers->id }}" {{ old('suppliers_id') == $suppliers->id ? 'selected' : '' }} {{ !old('suppliers_id') ? $suppliers->name == "lainnya" ? 'selected' : ''  : ''}}>{{ $suppliers->name }}</option>
             @endforeach
