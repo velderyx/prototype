@@ -22,20 +22,15 @@
                         <label>Tanggal</label>
                         <input id="date"type="date" class="form-control" name="date" value="{{ old('date') }}" />
                     </div>
-                    <div class="form-group">
-                    <label>Supplier</label>
-                        <div class="d-flex">
-                            @livewire('partAttribute', ['section' => 'suppliers'])
-                            <button type="button" data-toggle="modal" data-target="#supplierModal">+</button>
-                        </div>
-                    </div>
+
+                    {{-- supplier attirbute --}}
+                    @livewire('supplierAttribute')
+
                     {{-- insurance attirbute --}}
                     @livewire('insuranceAttribute')
-                    {{-- end insurance attirbute --}}
 
                     {{-- insurance attirbute --}}
                     @livewire('CarAttribute')
-                    {{-- end insurance attirbute --}}
 
                     <div class="form-group">
                         <label>Plat nomor</label>
@@ -90,6 +85,8 @@
         {{-- car modal --}}
         @livewire('CarFormModal')
 
+        {{-- car modal --}}
+        @livewire('SupplierFormModal')
 
        {{-- status modal  --}}
        <div class="modal fade" id="statusModal" tabindex="-1" aria-labelledby="statusModalModalLabel" aria-hidden="true">

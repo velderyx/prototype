@@ -1,12 +1,12 @@
 <div class="form-group">
-    <label>Asuransi</label>
-    {{-- <button wire:click.prevent="updateInsurances">+</button> --}}
+    <label>Supplier</label>
+    {{-- <button wire:click.prevent="updatesupplierss">+</button> --}}
     <div class="d-flex">
-        <select id="insurance_id" class="form-control" name="insurance_id">
-            @foreach ($insurancesLive as $insurance)
-            <option value="{{ $insurance->id }}" {{ old('insurance_id') == $insurance->id ? 'selected' : '' }} {{ !old('insurance_id') ? $insurance->name == "lainnya" ? 'selected' : ''  : ''}}>{{ $insurance->name }}</option>
+        <select id="suppliers_id" class="form-control" name="suppliers_id">
+            @foreach ($suppliersLive as $suppliers)
+            <option value="{{ $suppliers->id }}" {{ old('suppliers_id') == $suppliers->id ? 'selected' : '' }} {{ !old('suppliers_id') ? $suppliers->name == "lainnya" ? 'selected' : ''  : ''}}>{{ $suppliers->name }}</option>
             @endforeach
         </select>
-        <button type="button" data-toggle="modal" data-target="#insuranceModal">+</button>
+        <button type="button" data-toggle="modal" data-target="#suppliersModal">+</button>
     </div>
 </div>
