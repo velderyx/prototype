@@ -3,4 +3,5 @@ list objecttive:
 2. multi ambil, done.
 3. make backup, done.
 4. make toast notification for save modal. done
-5. fix add car model using modal without refresh.
+5. fix add car model using modal without refresh. done
+6. make location add in create
