@@ -131,9 +131,6 @@ class PartController extends Controller
             'description' => 'nullable'
         ]);
 
-        // Update the part with the new data
-        $part->update($data);
-
         // Retrieve the original part from the database
         $partFromDatabase = Part::find($part->id);
 
@@ -142,8 +139,7 @@ class PartController extends Controller
 
         $statusOld = $partFromDatabase->status_id;
         $statusNew = $request->input('status_id');
-        $status_id = $request->input('status_id');
-        if ($status_id != $partFromDatabase->status_id) {
+        if ($statusNew != $statusOld) {
             Log::create([
                 'date' => $currentDate,
                 'part_id' => $part->id,
@@ -151,7 +147,10 @@ class PartController extends Controller
                 'new' => $statusNew
             ]);
         }
-        else
+
+
+        // Update the part with the new data
+        $part->update($data);
 
         // Redirect the user to the index route for parts with success message
         return redirect(route('part.index'));
