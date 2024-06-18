@@ -66,6 +66,10 @@ route::get('/test', [TestController::class, 'test'])->name('test.index');
 route::post('/test', [TestController::class, 'store'])->name('test.store');
 
 
+Route::get('/time', function () {
+    return now();
+});
+
 
 //auth using middleware
 // Route::get('/login',[LoginController::class, 'index'])->name('login')->middleware('guest');
