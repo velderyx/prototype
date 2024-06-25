@@ -35,6 +35,10 @@ if location table created after production:
 make location table first => insert one data => change the id of inserted data to 0 then migrate should be no error after that.
 https://stackoverflow.com/questions/21659691/error-1452-cannot-add-or-update-a-child-row-a-foreign-key-constraint-fails madhur baiya's answer
 
+
+making backup daily using windows task scheduler
+https://chatgpt.com/share/4a44d641-1c32-46bc-aca7-6d2f59181cbd
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
