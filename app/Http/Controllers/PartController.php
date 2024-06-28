@@ -70,10 +70,13 @@ class PartController extends Controller
         $date = $request->input('date');
         $description = $request->input('description');
 
-
+        $currentDate = date('Y-m-d');
         foreach ($data['names'] as $key => $name) {
-            $location_id = $data['location_ids'][$key]; // Retrieve location_id for this part
-            $created = Part::create([
+            $location_id = $data['location_ids'][$key];
+            $created = null;
+
+            // Common part creation data
+            $partData = [
                 'name' => $name,
                 'car_id' => $car_id,
                 'plate' => $plate,
@@ -82,27 +85,36 @@ class PartController extends Controller
                 'status_id' => $status_id,
                 'location_id' => $location_id,
                 'date' => $date,
-                'date_out' => null,
                 'description' => $description,
-            ]);
+            ];
 
-            $maxId = Part::max('id');
-            $currentDate = date('Y-m-d');
-            if($status_id == 2){
+            // Additional data based on status_id. if part is out when entered date_out collumn is filled
+            if ($status_id == 2) {
+                $partData['date_out'] = $currentDate;
+            } else {
+                $partData['date_out'] = null;
+            }
+
+            // Create the part
+            $created = Part::create($partData);
+
+            // Check if part creation was successful
+            if (!$created) {
+                return redirect()->back()->with('error', 'Failed to save data.');
+            }
+
+            // Log creation for status_id 2
+            if ($status_id == 2) {
                 Log::create([
                     'date' => $currentDate,
-                    'part_id' => $maxId,
+                    'part_id' => $created->id,
                     'old' => 1,
                     'new' => 2
                 ]);
             }
-
-            if (!$created) {
-                // Log or handle the error
-                return redirect()->back()->with('error', 'Failed to save data.');
-            }
         }
 
+        // Send success alert and redirect
         $this->sendAlert('success', 'message');
 
         return redirect(route('part.index'));
