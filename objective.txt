@@ -4,4 +4,5 @@ list objecttive:
 3. make backup, done.
 4. make toast notification for save modal. done
 5. fix add car model using modal without refresh. done
-6. make location add in create
+6. fix add part direct out
+7. make location add in create
