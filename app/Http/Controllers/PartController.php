@@ -173,6 +173,7 @@ class PartController extends Controller
     {
         // Validate the input
         $request->validate([
+            'date' => 'date',
             'status_id' => 'required|array',
             'status_id.*' => 'in:1,2',
         ]);
@@ -181,13 +182,13 @@ class PartController extends Controller
         foreach ($request->status_id as $part_id => $status_id) {
             $part = Part::findOrFail($part_id);
             $part->status_id = $status_id;
-            $part->date_out = $currentDate;
+            $part->date_out = $request->date;
             $part->save();
 
             //save to log
             if($status_id == 2){
                 Log::create([
-                    'date' => $currentDate,
+                    'date' => $request->date,
                     'part_id' => $part_id,
                     'old' => 1,
                     'new' => 2

@@ -84,8 +84,11 @@
         </tfoot>
     </table>
 
+
     <div class="form-group">
-        <button type="submit" class="btn btn-primary" onclick="return confirm('Konfirmasi update part')">Update Status</button>
+        <label>Tanggal Keluar</label>
+        <input id="date" type="date" class="form-control" name="date" value="{{ old('date') }}" style="display: inline-block; width: auto;"/>
+        <button type="submit" class="btn btn-primary" onclick="return confirm('Konfirmasi update part')" style="display: inline-block;">Update Status</button>
     </div>
 </form>
 </div>
