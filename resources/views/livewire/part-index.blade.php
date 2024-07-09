@@ -84,7 +84,9 @@
         </tfoot>
     </table>
 
+    <hr>
 
+    <label>Multi Update status barang</label>
     <div class="form-group">
         <label>Tanggal Keluar</label>
         <input id="date" type="date" class="form-control" name="date" value="{{ old('date') }}" style="display: inline-block; width: auto;"/>
