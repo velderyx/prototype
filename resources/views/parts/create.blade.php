@@ -214,6 +214,18 @@
     }
 </script>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.querySelector('form');
+        const submitButton = form.querySelector('button[type="submit"]');
+
+        form.addEventListener('submit', function () {
+            submitButton.disabled = true;
+        });
+    });
+</script>
+
+
 @if ($errors->any())
     <script>
         window.onload = function() {
