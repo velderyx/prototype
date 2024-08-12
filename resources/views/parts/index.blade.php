@@ -41,9 +41,7 @@
           <div class="col-12">
             <!-- /.card -->
             <div class="card">
-              <!-- /.card-header -->
-              @livewire('PartIndex')
-              <!-- /.card-body -->
+              @livewire('PartIndex') {{-- at the App/Livewire --}}
             </div>
             <!-- /.card -->
           </div>

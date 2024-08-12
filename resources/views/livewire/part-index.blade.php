@@ -4,7 +4,7 @@
         <option value="1">Status 1</option>
         <option value="2">Status 2</option>
     </select> --}}
-@livewire('ToastNotification')
+@livewire('ToastNotification') {{-- at the app/livewire --}}
 <form action="{{ route('part.bulk-change-status') }}" method="POST">
     @csrf
     @method('PATCH')
