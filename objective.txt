@@ -4,7 +4,7 @@ list objecttive:
 3. make backup, done.
 4. make toast notification for save modal. done
 5. fix add car model using modal without refresh. done
-6. fix add part direct out done
+6. fix add part direct out. done
 7. make location add in create pending
 8. fix edit page not in correct form field order
-9. fix sort order in index, its based on id, should be by date
+9. fix sort order in index, its based on id, should be by date. done 12/8

@@ -37,14 +37,9 @@
                     <label>plat nomor</label>
                     <input type="text" class="form-control uppercase" name="plate" placeholder="plat nomor" value="{{ $part->plate }}" oninput="this.value = this.value.toUpperCase()"/>
                  </div>
-                 <div class="form-group">
-                  <label>Supplier</label>
-                   <select class="form-control" name="supplier_id">
-                       @foreach ($suppliers as $supplier)
-                       <option value="{{ $supplier->id }}" {{ $supplier->id == $part->supplier_id ? 'selected' : '' }}>{{ $supplier->name }}</option>
-                       @endforeach
-                   </select>
-                 </div>
+
+                 @livewire('supplierAttribute', ['id_supplier_edit' => $part->supplier_id])
+
                  <div class="form-group">
                     <label>Asuransi</label>
                     <select class="form-control" name="insurance_id">
@@ -93,6 +88,16 @@
          </div>
        </div>
        <!-- /.row -->
+
+
+       {{-- insurance modal --}}
+       @livewire('insuranceFormModal')
+
+       {{-- car modal --}}
+       @livewire('CarFormModal')
+
+       {{-- car modal --}}
+       @livewire('SupplierFormModal')
      </div><!-- /.container-fluid -->
    </section>
 @endsection
