@@ -3,19 +3,19 @@
     {{-- <button wire:click.prevent="updatesupplierss">+</button> --}}
     <div class="d-flex">
         <select id="supplier_id" class="form-control" name="supplier_id">
-            @foreach ($suppliersLive as $suppliers)
-            <option value="{{ $suppliers->id }}"
-                @if (old('suppliers_id') == $suppliers->id)
+            @foreach ($suppliersLive as $supplier)
+            <option value="{{ $supplier->id }}"
+                @if (old('supplier_id') == $supplier->id)
                     selected
-                @elseif ($id_supplier_edit == $suppliers->id)
+                @elseif ($id_supplier_edit == $supplier->id)
                     selected
                 @else
-                    @if ($suppliers->name == "lainnya")
+                    @if ($supplier->name == "lainnya")
                         selected
                     @endif
                 @endif
             >
-                {{ $suppliers->name }}
+                {{ $supplier->name }}
             </option>
             @endforeach
         </select>

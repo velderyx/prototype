@@ -21,32 +21,20 @@
                     <label>tanggal</label>
                     <input type="date" class="form-control" name="date" value="{{ $part->date }}"/>
                  </div>
-                 <div class="form-group">
-                    <label>Nama</label>
-                    <input type="text" class="form-control" name="name" placeholder="nama part" value="{{ $part->name }}" oninput="this.value = this.value.toUpperCase()"/>
-                 </div>
-                 <div class="form-group">
-                    <label>Mobil</label>
-                    <select class="form-control" name="car_id">
-                        @foreach ($cars as $car)
-                        <option value="{{ $car->id }}" {{ $car->id == $part->car_id ? 'selected' : '' }}>{{ $car->name }}</option>
-                        @endforeach
-                    </select>
-                 </div>
+
+                 @livewire('supplierAttribute', ['id_supplier_edit' => $part->supplier_id])
+
+                 @livewire('insuranceAttribute', ['id_insurance_edit' => $part->insurance_id])
+
+                 @livewire('carAttribute', ['id_car_edit' => $part->car_id])
+
                  <div class="form-group">
                     <label>plat nomor</label>
                     <input type="text" class="form-control uppercase" name="plate" placeholder="plat nomor" value="{{ $part->plate }}" oninput="this.value = this.value.toUpperCase()"/>
                  </div>
-
-                 @livewire('supplierAttribute', ['id_supplier_edit' => $part->supplier_id])
-
                  <div class="form-group">
-                    <label>Asuransi</label>
-                    <select class="form-control" name="insurance_id">
-                      @foreach ($insurances as $insurance)
-                      <option value="{{ $insurance->id }}" {{ $insurance->id == $part->insurance_id ? 'selected' : '' }}>{{ $insurance->name }}</option>
-                      @endforeach
-                    </select>
+                    <label>Nama</label>
+                    <input type="text" class="form-control" name="name" placeholder="nama part" value="{{ $part->name }}" oninput="this.value = this.value.toUpperCase()"/>
                  </div>
                  <div class="form-group">
                   <label>Lokasi</label>

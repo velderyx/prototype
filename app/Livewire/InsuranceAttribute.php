@@ -14,9 +14,11 @@ class InsuranceAttribute extends Component
 {
     public $title = 'Asuransi';
     public $insurancesLive;
+    public $id_insurance_edit;
 
-    public function mount(){
+    public function mount($id_insurance_edit){
         $this->insurancesLive = Insurance::orderBy('name')->get();
+        $this->id_insurance_edit = $id_insurance_edit;
     }
 
     protected $listeners = ['insurancesUpdate' => 'updateInsurances'];

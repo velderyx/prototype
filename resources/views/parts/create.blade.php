@@ -27,10 +27,10 @@
                     @livewire('supplierAttribute', ['id_supplier_edit' => 'not_for edit']) {{-- you can fill anything to that variable as long as its not empty --}}
 
                     {{-- insurance attirbute --}}
-                    @livewire('insuranceAttribute', ['id_supplier_edit' => 'not_for edit'])
+                    @livewire('insuranceAttribute', ['id_insurance_edit' => 'not_for edit'])
 
                     {{-- insurance attirbute --}}
-                    @livewire('CarAttribute', ['id_supplier_edit' => 'not_for edit'])
+                    @livewire('carAttribute', ['id_car_edit' => 'not_for edit'])
 
                     <div class="form-group">
                         <label>Plat nomor</label>
