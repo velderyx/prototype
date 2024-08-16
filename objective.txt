@@ -6,5 +6,5 @@ list objecttive:
 5. fix add car model using modal without refresh. done
 6. fix add part direct out. done
 7. make location add in create pending
-8. fix edit page not in correct form field order
+8. fix edit page not in correct form field order. done 15/8
 9. fix sort order in index, its based on id, should be by date. done 12/8

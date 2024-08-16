@@ -22,7 +22,7 @@
                     <input type="date" class="form-control" name="date" value="{{ $part->date }}"/>
                  </div>
 
-                 @livewire('supplierAttribute', ['id_supplier_edit' => $part->supplier_id])
+                 @livewire('supplierAttribute', ['id_supplier_edit' => $part->supplier_id]) {{-- add parameter variable to livewire backend --}}
 
                  @livewire('insuranceAttribute', ['id_insurance_edit' => $part->insurance_id])
 
