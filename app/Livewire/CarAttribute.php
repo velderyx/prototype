@@ -11,7 +11,7 @@ class CarAttribute extends Component
     public $carsLive;
     public $id_car_edit;
 
-    public function mount( $id_car_edit){
+    public function mount($id_car_edit){
         $this->carsLive = Car::orderBy('name')->get();
         $this->id_car_edit = $id_car_edit;
     }
