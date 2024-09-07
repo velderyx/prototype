@@ -11,7 +11,29 @@
 
 notes:
 dependencies:   -adminLte, put it in public
-if error autoload not found: composer install
+if error autoload not found:    -enable extension by deleting ; on ;extension=zip in php.ini apache xampp
+                                -composer install
+if 500 error array 1 undefined, replace the getDate function with this:
+protected function getDateFromLine($line)
+{
+    $regex = env('PHP_CLI_SERVER_WORKERS', 1) > 1
+        ? '/^\[\d+]\s\[([a-zA-Z0-9: ]+)\]/'
+        : '/^\[([^\]]+)\]/';
+
+    $line = str_replace('  ', ' ', $line);
+
+    if (preg_match($regex, $line, $matches)) {
+        // Ensure that $matches[1] exists before trying to use it
+        if (isset($matches[1])) {
+            return Carbon::createFromFormat('D M d H:i:s Y', $matches[1]);
+        }
+    }
+
+    // Handle the case where the date could not be extracted
+    return null; // Or throw an exception or return a default value
+}
+
+
 run on localhost: https://www.youtube.com/watch?v=ABxWF4WjLLE
 make .htaccess file:
 RewriteEngine On
