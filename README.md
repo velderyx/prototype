@@ -35,6 +35,22 @@ protected function getDateFromLine($line)
 
 
 run on localhost: https://www.youtube.com/watch?v=ABxWF4WjLLE
+-go to C:\xampp\apache\conf\extra 
+    edit httpd-vhosts.conf add line 
+    <VirtualHost *:80>
+        ServerAdmin webmaster@liefs.test
+        DocumentRoot "C:/xampp/htdocs/prototype/public"
+        ServerName liefs.test
+        ErrorLog "logs/liefs.test-error.log"
+        CustomLog "logs/liefs.test-access.log" common
+    </VirtualHost>
+-then go to C:\Windows\System32\drivers\etc
+    edit hosts file, add line
+	127.0.0.1       liefs.test
+
+
+
+
 make .htaccess file:
 RewriteEngine On
 RewriteCond %{REQUEST_URI} !^/public/
