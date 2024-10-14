@@ -49,25 +49,14 @@ run on localhost: https://www.youtube.com/watch?v=ABxWF4WjLLE
 	127.0.0.1       liefs.test
 
 
-
-
 make .htaccess file:
 RewriteEngine On
 RewriteCond %{REQUEST_URI} !^/public/
 RewriteRule ^(.*)$ /public/$1 [L,QSA]
 
-edit httpd-vhosts on C:\xampp\apache\conf\extra
-<VirtualHost *:80>
-    ServerAdmin webmaster@liefs.test
-    DocumentRoot "C:/xampp/htdocs/liefs/public/"
-    ServerName liefs.test
-    ErrorLog "logs/dummy-host2.example.com-error.log"
-    CustomLog "logs/dummy-host2.example.com-access.log" common
-</VirtualHost>
 
-edit host on C:\Windows\System32\drivers\etc 
-127.0.0.1	localhost
-127.0.0.1	liefs.test
+
+
 
 if location table created after production:
 make location table first => insert one data => change the id of inserted data to 0 then migrate should be no error after that.
