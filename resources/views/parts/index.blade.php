@@ -1,6 +1,7 @@
 @extends('layout.main')
 @section('title', 'Data Part')
 @section('content')
+<script src="js/app.jsx"></script>
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
