@@ -49,10 +49,10 @@
                             </select>
                             <button type="button" data-toggle="modal" data-target="#locationModal">+</button>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Keterangan tambahan</label>
-                        <input id="description" type="text" class="form-control" name="description" placeholder="kosong" value="{{ old('description') }}"/>
+                        <div class="form-group">
+                            <label>Keterangan tambahan</label>
+                            <input id="description1" type="text" class="form-control" name="descriptions[]" placeholder="kosong" value="{{ old('descriptions') }}"/>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label>Status</label>
@@ -193,12 +193,14 @@
         div.innerHTML = `
             <label for="name${nameCounter}">Nama Part ke-${nameCounter}:</label>
             <input type="text" class="form-control" id="name${nameCounter}" name="names[]"  oninput="this.value = this.value.toUpperCase()" placeholder="nama part">
-                    <label>Lokasi Part ke-${nameCounter}:</label>
-                    <select class="form-control" id="location_id${nameCounter}" name="location_ids[]">
-                        @foreach ($locations as $location)
-                        <option value="{{ $location->id }}">{{ $location->name }}</option>
-                        @endforeach
-                    </select>
+            <label>Lokasi Part ke-${nameCounter}:</label>
+            <select class="form-control" id="location_id${nameCounter}" name="location_ids[]">
+                @foreach ($locations as $location)
+                <option value="{{ $location->id }}">{{ $location->name }}</option>
+                @endforeach
+            </select>
+            <label for="name${nameCounter}">Keterangan tambahan part ke-${nameCounter}:</label>
+            <input id="description${nameCounter}" type="text" class="form-control" name="descriptions[]" placeholder="kosong" value="{{ old('description') }}"/>
             <button type="button" onclick="removeNameInput('${divId}')">Remove</button> <!-- Pass divId to removeNameInput -->
         `;
         container.appendChild(div);

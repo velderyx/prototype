@@ -59,7 +59,7 @@ class PartController extends Controller
             'location_ids.*' => 'required',
             'date'=> 'required',
             'date_out' => 'nullable',
-            'description' => 'nullable'
+            'descriptions.*' => 'nullable'
         ]);
 
         $car_id = $request->input('car_id');
@@ -68,11 +68,11 @@ class PartController extends Controller
         $insurance_id = $request->input('insurance_id');
         $status_id = $request->input('status_id');
         $date = $request->input('date');
-        $description = $request->input('description');
 
         $currentDate = date('Y-m-d');
         foreach ($data['names'] as $key => $name) {
             $location_id = $data['location_ids'][$key];
+            $description = $data['descriptions'][$key] ?? null;
             $created = null;
 
             // Common part creation data
