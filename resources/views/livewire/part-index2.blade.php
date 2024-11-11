@@ -8,7 +8,7 @@
     <thead>
     <tr>
     <th>No.</th>
-    <th>Tgl Masuk</th>
+    <th>Tgl Masuk</th> 
     <th>Tgl Keluar</th>
     <th>Plat Nomor</th>
     <th>Nama</th>
@@ -27,10 +27,11 @@
         $rowNumber = $totalParts;
     @endphp
     @foreach($parts as $part)
+        
     <tr>
         <td>{{ $rowNumber-- }}</td>
         <td>{{ date('d/m/Y', strtotime($part->date)) }}</td>
-        <td>{{ date('d/m/Y', strtotime($part->date_out)) }}</td>
+        <td>{{ empty($part->date_out) || $part->date_out == '0000-00-00' ? '--' : date('d/m/Y', strtotime($part->date_out)) }}</td>
         <td>{{ $part->plate }}</td>
         <td>{{ $part->name }}</td>
         <td>{{ $part->car->name }}</td>
