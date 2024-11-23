@@ -37,7 +37,7 @@
                         <input id="plate" type="text" class="form-control" name="plate" placeholder="B 9999 IPO" value="{{ old('plate') }}" oninput="this.value = this.value.toUpperCase()"/>
                     </div>
                     <div class="form-group" id="nameInputs">
-                        <label>Nama</label>
+                        <label style="color: blue;">Nama Part</label>
                         <button type="button" onclick="addNameInput()">+</button>
                         <input id="name1" type="text" class="form-control" id="name1" name="names[]" placeholder="Antena" value="{{ old('names1') }}" oninput="this.value = this.value.toUpperCase()"/>
                         <label>Lokasi</label>
@@ -191,9 +191,9 @@
         const divId = "nameDiv" + nameCounter; // Create unique ID for the div
         div.id = divId; // Assign ID to the div
         div.innerHTML = `
-            <label for="name${nameCounter}">Nama Part ke-${nameCounter}:</label>
+            <label for="name${nameCounter}" style="color: blue;">Nama Part ke-${nameCounter}:</label>
             <input type="text" class="form-control" id="name${nameCounter}" name="names[]"  oninput="this.value = this.value.toUpperCase()" placeholder="nama part">
-            <label>Lokasi Part ke-${nameCounter}:</label>
+            <label >Lokasi Part ke-${nameCounter}:</label>
             <select class="form-control" id="location_id${nameCounter}" name="location_ids[]">
                 @foreach ($locations as $location)
                 <option value="{{ $location->id }}">{{ $location->name }}</option>
