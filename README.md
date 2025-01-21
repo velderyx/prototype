@@ -23,6 +23,8 @@ If `autoload not found` error occurs:
    ```
 
 If `500` error occurs (`array 1 undefined`):  
+dont forget the .env file
+
 Replace the `getDate` function with the following code:  
 ```php
 protected function getDateFromLine($line)
